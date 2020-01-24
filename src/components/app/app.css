@@ -58,10 +58,21 @@ h3 {
   line-height: 50%;
 }
 
-input {
+input, button {
   height: 30px;
   border: 1px solid grey;
   border-radius: 2px;
   background-color: white;
   margin: 0 5px 5px 5px;
+}
+
+button:hover {
+  background-color: #339966;
+  transition: .4s;
+}
+
+.add-to-gallery-btn {
+  background-color: peru;
+  height: 50px;
+  width: 200px;
 }
