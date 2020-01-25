@@ -1,14 +1,22 @@
 import React from 'react';
 
 export default class ArtPage extends React.Component {
+
     render() {
+        // console.log(this.props.art)
+        // let art = this.props.art;
+        // console.log(art);
+        // const picture = Object.values(picture => picture.value);
+        console.log(this.props);
+        // const title = Object.keys(title => title.value)
+        // console.log(title)
         return (
             <div className='art-page'>
-                <img className='random-feature' src='https://www.moma.org/media/W1siZiIsIjQ2NzUxNyJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=bcd18fd7a361679c' alt='The Starry Night by Vincent Van Gogh' />
+                <img className='random-feature' src={this.props.picture} alt='Art of the day.' />
                 
                 <div className='art-info'>
-                    <h3>The Starry Night</h3>
-                    <h3>Vincent Van Gogh, 1889</h3>
+                    <h3>{this.props.title}</h3>
+                    <h3>{this.props.artist} {this.props.year}</h3>
                     <button className='add-to-gallery-btn'><h4>Save to my gallery</h4></button>
                 </div>
 

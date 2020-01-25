@@ -1,9 +1,23 @@
 import React from 'react';
+import ValidationError from '../../validation-error';
 import TokenService from '../../services/token-service';
-import AuthApiService from '../../services/token-service';
-// import { Link } from 'react-router-dom';
+import AuthApiService from '../../services/auth-api-service';
 
 export default class Login extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: {
+                value: '',
+                touched: false
+            },
+            password: {
+                value: '',
+                touched: false
+            },
+        }
+    }
 
     handleLoginSuccess = () => {
         window.location = '/dashboard'
@@ -69,14 +83,14 @@ export default class Login extends React.Component {
                         <input className='login-control' type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)} 
                         value='demo@test.com' 
                         />
-                        {/* {this.state.email.touched && (<ValidationError message={this.validateEmail()} />)} */}
+                        {this.state.email.touched && (<ValidationError message={this.validateEmail()} />)}
                     </div>
                     <div className='login-form-entry'>
                         <label htmlFor='password'>Password</label>
                         <input className='login-control' type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)} 
                         value='password1' 
                         />
-                        {/* {this.state.password.touched && (<ValidationError message={this.validatePassword()} />)} */}
+                        {this.state.password.touched && (<ValidationError message={this.validatePassword()} />)}
                     </div>
                     <button type='submit'>
                         Log in
