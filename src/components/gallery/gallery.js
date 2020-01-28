@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ArtApiService from '../../services/art-api-service';
+// import ArtPage from '../art-page/art-page';
 
 export default class Gallery extends React.Component {
     state = {
@@ -8,7 +10,7 @@ export default class Gallery extends React.Component {
 
     componentDidMount() {
         ArtApiService.getArtGallery()
-            .then(resJson => 
+            .then(resJson =>
                 // console.log(resJson)
                 this.setState({
                     art: resJson
@@ -24,13 +26,13 @@ export default class Gallery extends React.Component {
                 <h2>My Gallery</h2>
                 <div className='gallery-container'>
                     {this.state.art.map(a => (
-                        // <div key={a.id}>
-                        <img key={a.id} className='gallery-image' src={a.primary_image} alt='Gallery tile' />
-                        // </div>
+                        <div key={a.id}>
+                            <Link to={`/art/${a.object_id}`} /*id={a.object_id}*/>
+                            {/* <Link key={a.id} to='/art'> */}
+                                <img key={a.id} className='gallery-image' src={a.primary_image} alt='Gallery tile' />
+                            </Link>
+                        </div>
                     ))}
-                    {/* <img className='gallery-image' src='https://www.moma.org/media/W1siZiIsIjQ2NzUxNyJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=bcd18fd7a361679c' alt='The Starry Night by Vincent Van Gogh' />
-                    <img className='gallery-image' src='https://www.moma.org/media/W1siZiIsIjQ2NzUxNyJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=bcd18fd7a361679c' alt='The Starry Night by Vincent Van Gogh' />
-                    <img className='gallery-image' src='https://www.moma.org/media/W1siZiIsIjQ2NzUxNyJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=bcd18fd7a361679c' alt='The Starry Night by Vincent Van Gogh' /> */}
                 </div>
             </div>
         )

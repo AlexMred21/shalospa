@@ -1,5 +1,5 @@
 import React from 'react';
-import ArtPage from '../art-page/art-page';
+// import ArtPage from '../art-page/art-page';
 
 const artArray = [
     {
@@ -63,7 +63,7 @@ export default class Dashboard extends React.Component {
 
     getRandomArtId() {
         const randomId = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
-        console.log(randomId)
+        console.log('RANDOM ID:', randomId)
         return randomId;
     }
 
@@ -87,16 +87,54 @@ export default class Dashboard extends React.Component {
         this.getRandomArtId()
 
         return (
-            <div className='dashboard'>
-                <h2>Today's feature:</h2>
-                <ArtPage 
-                    picture={this.state.picture}
-                    title={this.state.title}
-                    artist={this.state.artist}
-                    year={this.state.year}
-                />
-            </div>
+            <div className='art-page'>
+                <img className='random-feature' src={this.state.picture} alt='Art of the day.' />
+                
+                <div className='art-info'>
+                    <h3>{this.state.title}</h3>
+                    <h3>{this.state.artist} {this.state.year}</h3>
+                    <button className='add-to-gallery-btn'><h4>Save to my gallery</h4></button>
+                </div>
 
+                <div className='comments-container'>
+                    <h3>Comments</h3>
+
+                    <div className='art-comments'>
+                        <p>User: Artlover3000</p>
+                        <p>Comment: This is my favorite!!!</p>
+                    </div>
+                    <div className='art-comments'>
+                        <p>User: vangogogh</p>
+                        <p>Comment: Starry Night, spectacular!</p>
+                    </div>
+
+                    <form className='comment-form'>
+                        <div className='add-comment-entry'>
+                            <label>Add a comment</label>
+                            <br />
+                            <input className='add-comment' type='text' name='add-comment' id='add-comment' />
+                            
+                            <button type='submit'>
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         )
+
+
+        // return (
+        //     <div className='dashboard'>
+        //         <h2>Today's feature:</h2>
+        //         <ArtPage 
+        //             picture={this.state.picture}
+        //             title={this.state.title}
+        //             artist={this.state.artist}
+        //             year={this.state.year}
+        //         />
+        //     </div>
+        // )
     }
 }

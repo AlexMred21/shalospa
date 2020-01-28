@@ -46,7 +46,7 @@ export default class App extends React.Component {
             component={Gallery}
           />
           <Route
-            path='/art'
+            path='/art/:objectId'
             component={ArtPage}
           />
         </main>

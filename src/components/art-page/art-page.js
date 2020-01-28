@@ -1,22 +1,55 @@
 import React from 'react';
+import ArtApiService from '../../services/art-api-service';
 
 export default class ArtPage extends React.Component {
+    state = {
+        art: [],
+        comments: [],
+        picture: '',
+        title: '',
+        artist: '',
+        year: '',
+        error: null,
+    }
+
+    componentDidMount() {
+        const objectId = this.props.match.params.objectId;
+        console.log(objectId);
+        let i = objectId; // TODO ---> will be the objectID from function getRandomArtId()
+        ArtApiService.getArtImage(i)
+            .then(resJson =>
+                // console.log(resJson)
+                // console.log(resJson.primary_image)
+                this.setState({
+                        picture: resJson.primary_image,
+                        title: resJson.art_title,
+                        artist: resJson.art_artist,
+                        year: resJson.art_date,
+                })
+                )
+                console.log(this.state)
+            // .catch(error => this.setState({error}))
+        
+    }
 
     render() {
-        // console.log(this.props.art)
-        // let art = this.props.art;
-        // console.log(art);
+        // console.log(this.props.picture)
         // const picture = Object.values(picture => picture.value);
-        console.log(this.props);
+        // console.log(this.props);
+
+        // const objectId = this.props.match.params.objectId;
+        // console.log(objectId);
+
         // const title = Object.keys(title => title.value)
         // console.log(title)
+
         return (
             <div className='art-page'>
-                <img className='random-feature' src={this.props.picture} alt='Art of the day.' />
+                <img className='random-feature' src={this.state.picture} alt='Art of the day.' />
                 
                 <div className='art-info'>
-                    <h3>{this.props.title}</h3>
-                    <h3>{this.props.artist} {this.props.year}</h3>
+                    <h3>{this.state.title}</h3>
+                    <h3>{this.state.artist} {this.state.year}</h3>
                     <button className='add-to-gallery-btn'><h4>Save to my gallery</h4></button>
                 </div>
 

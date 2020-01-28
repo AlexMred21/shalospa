@@ -17,13 +17,13 @@ export default class Header extends React.Component {
                 </section>
 
                 <section className='app-log-in'>
-                        <button className='link'>
-                            Log In
+                    <button className='link'>
+                        Log In
                         </button>
-                        <button className='link'>
-                            Sign Up
+                    <button className='link'>
+                        Sign Up
                         </button>
-                    </section>
+                </section>
 
             </div>
         )
