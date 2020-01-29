@@ -1,4 +1,5 @@
 import React from 'react';
+import ArtApiService from '../../services/art-api-service';
 // import ArtPage from '../art-page/art-page';
 
 const artArray = [
@@ -68,20 +69,65 @@ export default class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        let i = 2; // TODO ---> will be the objectID from function getRandomArtId()
-        // ArtApiService.getTodaysArt()
-        //     .then(resJson =>
+        let i = 300; // TODO ---> will be the objectID from function getRandomArtId()
+        let j = 436535;
+        let h = 438012;
+        // let comments = ArtApiService.getComments(j)
+        // console.log(comments)
+
+        Promise.all([ArtApiService.getArtImage(j), ArtApiService.getComments(j)])
+            .then(([res1, res2]) => {
+                console.log(res1, res2)
+                let allComments = res2.map(c =>
+                    <div className='art-comments' key={c.id}>
+                        <p>User: {c.user_id}</p>
+                        <p>Comment: {c.comment}</p>
+                    </div>
+                )
+                let commentArray = (
+                    (allComments.length === 0) 
+                    ? <div className='art-comments' key='0'>
+                        <p>Be the first to add a comment.</p> 
+                    </div> 
+                    : allComments
+                    )
+                console.log(commentArray)
+                return Promise.all([res1, commentArray])
+            })
+            .then(([res1, allComments]) => {
                 this.setState({
-                        picture: artArray[i].primaryImage,
-                        title: artArray[i].title,
-                        artist: artArray[i].artistDisplayName,
-                        year: artArray[i].objectDate,
+                    picture: res1.primary_image,
+                    title: res1.art_title,
+                    artist: res1.art_artist,
+                    year: res1.art_date,
+                    comments: allComments,
                 })
-                // )
+            })
                 console.log(this.state)
             // .catch(error => this.setState({error}))
         
     }
+
+    // componentDidMount() {
+    //     let i = 2; // TODO ---> will be the objectID from function getRandomArtId()
+    //     let j = 436535
+    //     let comments = ArtApiService.getComments(j)
+    //     // console.log(comments)
+
+    //     // ArtApiService.getTodaysArt()
+    //     //     .then(resJson =>
+    //             this.setState({
+    //                     picture: artArray[i].primaryImage,
+    //                     title: artArray[i].title,
+    //                     artist: artArray[i].artistDisplayName,
+    //                     year: artArray[i].objectDate,
+    //                     comments: comments,
+    //             })
+    //             // )
+    //             console.log(this.state)
+    //         // .catch(error => this.setState({error}))
+        
+    // }
 
     render() {
         this.getRandomArtId()
@@ -98,15 +144,15 @@ export default class Dashboard extends React.Component {
 
                 <div className='comments-container'>
                     <h3>Comments</h3>
-
-                    <div className='art-comments'>
+                    {this.state.comments}
+                    {/* <div className='art-comments'>
                         <p>User: Artlover3000</p>
                         <p>Comment: This is my favorite!!!</p>
                     </div>
                     <div className='art-comments'>
                         <p>User: vangogogh</p>
                         <p>Comment: Starry Night, spectacular!</p>
-                    </div>
+                    </div> */}
 
                     <form className='comment-form'>
                         <div className='add-comment-entry'>
