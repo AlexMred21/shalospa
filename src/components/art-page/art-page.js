@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../../config'
 import ArtApiService from '../../services/art-api-service';
 
 export default class ArtPage extends React.Component {
@@ -12,11 +13,55 @@ export default class ArtPage extends React.Component {
         error: null,
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        // if (this.state.errorCount > 0) return;
+        // const objectId = this.props.match.params.objectId;
+        // console.log(objectId);
+
+        const { objectId, addComment } = e.target;
+        console.log(this.props.match.params.objectId)
+        console.log(addComment.value)
+        const newComment = {
+            art_id: this.props.match.params.objectId,
+            comment: addComment.value,
+        };
+        console.log(newComment)
+        this.setState({ error: null });
+
+        // fetch(config.API_COMMENTS, {
+        //     method: 'POST',
+        //     body: JSON.stringify(comment),
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     }
+        // })
+        //     .then(res => {
+        //         if (!res.ok) {
+        //             return res.json().then(error => {
+        //                 throw error;
+        //             });
+        //         }
+        //         return res.json();
+        //     })
+        ArtApiService.postComment(newComment.art_id, newComment.comment)
+            .then(data => {
+                addComment.value = '';
+                // this.context.addNote(data);
+                this.setState({data});
+                this.props.history.push('/', data);
+            })
+            .catch(error => {
+                this.setState({ appError: error });
+            });
+    };
 
     componentDidMount() {
         const objectId = this.props.match.params.objectId;
         console.log(objectId);
-        let i = objectId; // TODO ---> will be the objectID from function getRandomArtId()
+        let i = objectId;
+
         Promise.all([ArtApiService.getArtImage(i), ArtApiService.getComments(i)])
             .then(([res1, res2]) => {
                 console.log(res1, res2)
@@ -38,38 +83,9 @@ export default class ArtPage extends React.Component {
                     comments: allComments,
                 })
             })
-        // ArtApiService.getArtImage(i)
-        //     .then(resJson =>
-        //         // console.log(resJson)
-        //         // console.log(resJson.primary_image)
-        //         this.setState({
-        //             picture: resJson.primary_image,
-        //             title: resJson.art_title,
-        //             artist: resJson.art_artist,
-        //             year: resJson.art_date,
-        //         })
-        //     )
-        //     ArtApiService.getComments(i)
-        //         .then(resJson =>
-        //             this.setState({
-        //                 comments: resJson
-        //             })
-        //         )
-        // // console.log(this.state)
-        // // .catch(error => this.setState({error}))
-
     }
 
     render() {
-        // console.log(this.props.picture)
-        // const picture = Object.values(picture => picture.value);
-        // console.log(this.props);
-
-        // const objectId = this.props.match.params.objectId;
-        // console.log(objectId);
-
-        // const title = Object.keys(title => title.value)
-        // console.log(title)
 
         return (
             <div className='art-page'>
@@ -94,13 +110,15 @@ export default class ArtPage extends React.Component {
                         <p>Comment: Starry Night, spectacular!</p>
                     </div> */}
 
-                    <form className='comment-form'>
+                    <form className='comment-form' onSubmit={this.handleSubmit}>
                         <div className='add-comment-entry'>
                             <label>Add a comment</label>
                             <br />
-                            <input className='add-comment' type='text' name='add-comment' id='add-comment' />
+                            <input className='add-comment' type='text' name='addComment' id='add-comment' />
 
-                            <button type='submit'>
+                            <button 
+                                type='submit'
+                            >
                                 Submit
                             </button>
                         </div>

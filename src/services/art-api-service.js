@@ -35,5 +35,25 @@ const ArtApiService = {
             : res.json()
         )
       },
+      postComment(art_id, comment) {
+        return fetch(`${config.API_ENDPOINT}/comments`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+        },
+          body: JSON.stringify({
+            art_id,
+            comment
+            }),
+      })
+          .then(res => {
+              if (!res.ok) {
+                  return res.json().then(error => {
+                      throw error;
+                  });
+              }
+              return res.json();
+          })
+      }
 }
 export default ArtApiService
