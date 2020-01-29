@@ -30,27 +30,11 @@ export default class ArtPage extends React.Component {
         console.log(newComment)
         this.setState({ error: null });
 
-        // fetch(config.API_COMMENTS, {
-        //     method: 'POST',
-        //     body: JSON.stringify(comment),
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     }
-        // })
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             return res.json().then(error => {
-        //                 throw error;
-        //             });
-        //         }
-        //         return res.json();
-        //     })
         ArtApiService.postComment(newComment.art_id, newComment.comment)
             .then(data => {
                 addComment.value = '';
-                // this.context.addNote(data);
                 this.setState({data});
-                this.props.history.push('/', data);
+                this.props.history.push(window.location.reload(), data);
             })
             .catch(error => {
                 this.setState({ appError: error });
@@ -100,15 +84,6 @@ export default class ArtPage extends React.Component {
                 <div className='comments-container'>
                     <h3>Comments</h3>
                     {this.state.comments}
-                    {/* <div className='art-comments'>
-                        <p>User: Artlover3000</p>
-                        <p>Comment: This is my favorite!!!</p>
-
-                    </div>
-                    <div className='art-comments'>
-                        <p>User: vangogogh</p>
-                        <p>Comment: Starry Night, spectacular!</p>
-                    </div> */}
 
                     <form className='comment-form' onSubmit={this.handleSubmit}>
                         <div className='add-comment-entry'>
