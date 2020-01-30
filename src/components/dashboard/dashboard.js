@@ -55,6 +55,7 @@ export default class Dashboard extends React.Component {
     state = {
         art: [],
         comments: [],
+        object_id: '',
         picture: '',
         title: '',
         artist: '',
@@ -68,12 +69,40 @@ export default class Dashboard extends React.Component {
         return randomId;
     }
 
+    addToGallery = (e) => {
+        e.preventDefault();
+        const { objectId } = e.target
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const { objectId, addComment } = e.target;
+        // console.log(this.state.object_id)
+        // console.log(addComment.value)
+        const newComment = {
+            art_id: this.state.object_id,
+            comment: addComment.value,
+        };
+        console.log(newComment)
+        this.setState({ error: null });
+
+        ArtApiService.postComment(newComment.art_id, newComment.comment)
+            .then(data => {
+                console.log(data)
+                addComment.value = '';
+                this.setState({data});
+                this.props.history.push(window.location.reload(), data);
+            })
+            .catch(error => {
+                this.setState({ appError: error });
+            });
+    };
+
     componentDidMount() {
         let i = 300; // TODO ---> will be the objectID from function getRandomArtId()
         let j = 436535;
         let h = 438012;
-        // let comments = ArtApiService.getComments(j)
-        // console.log(comments)
 
         Promise.all([ArtApiService.getArtImage(j), ArtApiService.getComments(j)])
             .then(([res1, res2]) => {
@@ -91,11 +120,12 @@ export default class Dashboard extends React.Component {
                     </div> 
                     : allComments
                     )
-                console.log(commentArray)
+                // console.log(commentArray)
                 return Promise.all([res1, commentArray])
             })
             .then(([res1, allComments]) => {
                 this.setState({
+                    object_id: res1.object_id,
                     picture: res1.primary_image,
                     title: res1.art_title,
                     artist: res1.art_artist,
@@ -103,35 +133,14 @@ export default class Dashboard extends React.Component {
                     comments: allComments,
                 })
             })
-                console.log(this.state)
-            // .catch(error => this.setState({error}))
+                // console.log(this.state)
+            .catch(error => this.setState({error}))
         
     }
 
-    // componentDidMount() {
-    //     let i = 2; // TODO ---> will be the objectID from function getRandomArtId()
-    //     let j = 436535
-    //     let comments = ArtApiService.getComments(j)
-    //     // console.log(comments)
-
-    //     // ArtApiService.getTodaysArt()
-    //     //     .then(resJson =>
-    //             this.setState({
-    //                     picture: artArray[i].primaryImage,
-    //                     title: artArray[i].title,
-    //                     artist: artArray[i].artistDisplayName,
-    //                     year: artArray[i].objectDate,
-    //                     comments: comments,
-    //             })
-    //             // )
-    //             console.log(this.state)
-    //         // .catch(error => this.setState({error}))
-        
-    // }
-
     render() {
         this.getRandomArtId()
-
+        console.log(this.state)
         return (
             <div className='art-page'>
                 <img className='random-feature' src={this.state.picture} alt='Art of the day.' />
@@ -139,26 +148,22 @@ export default class Dashboard extends React.Component {
                 <div className='art-info'>
                     <h3>{this.state.title}</h3>
                     <h3>{this.state.artist} {this.state.year}</h3>
-                    <button className='add-to-gallery-btn'><h4>Save to my gallery</h4></button>
+                    <button 
+                    // name={this.state.res1.object_id}
+                    className='add-to-gallery-btn' 
+                    onClick={this.addToGallery}
+                    ><h4>Save to my gallery</h4></button>
                 </div>
 
                 <div className='comments-container'>
                     <h3>Comments</h3>
                     {this.state.comments}
-                    {/* <div className='art-comments'>
-                        <p>User: Artlover3000</p>
-                        <p>Comment: This is my favorite!!!</p>
-                    </div>
-                    <div className='art-comments'>
-                        <p>User: vangogogh</p>
-                        <p>Comment: Starry Night, spectacular!</p>
-                    </div> */}
 
-                    <form className='comment-form'>
+                    <form className='comment-form' onSubmit={this.handleSubmit}>
                         <div className='add-comment-entry'>
                             <label>Add a comment</label>
                             <br />
-                            <input className='add-comment' type='text' name='add-comment' id='add-comment' />
+                            <input className='add-comment' type='text' name='addComment' id='add-comment' />
                             
                             <button type='submit'>
                                 Submit

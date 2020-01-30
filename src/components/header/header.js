@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default class Header extends React.Component {
+
     render() {
         return (
             <div className='header'>
@@ -17,10 +18,10 @@ export default class Header extends React.Component {
                 </section>
 
                 <section className='app-log-in'>
-                    <button className='link'>
+                    <button className='link' onClick={() => window.location.href='/login'}>
                         Log In
                         </button>
-                    <button className='link'>
+                    <button className='link' onClick={() => window.location.href='/signup'}>
                         Sign Up
                         </button>
                 </section>

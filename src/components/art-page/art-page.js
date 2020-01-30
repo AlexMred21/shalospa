@@ -1,5 +1,5 @@
 import React from 'react';
-import config from '../../config'
+// import config from '../../config'
 import ArtApiService from '../../services/art-api-service';
 
 export default class ArtPage extends React.Component {
@@ -12,6 +12,8 @@ export default class ArtPage extends React.Component {
         year: '',
         error: null,
     }
+
+
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -32,6 +34,7 @@ export default class ArtPage extends React.Component {
 
         ArtApiService.postComment(newComment.art_id, newComment.comment)
             .then(data => {
+                console.log(data)
                 addComment.value = '';
                 this.setState({data});
                 this.props.history.push(window.location.reload(), data);
@@ -52,6 +55,7 @@ export default class ArtPage extends React.Component {
                 let allComments = res2.map(c =>
                     <div className='art-comments' key={c.id}>
                         <p>User: {c.user_id}</p>
+                        <p>Username: {c.user_name}</p>
                         <p>Comment: {c.comment}</p>
                     </div>
                 )

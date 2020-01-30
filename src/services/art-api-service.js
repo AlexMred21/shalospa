@@ -1,4 +1,4 @@
-// import TokenService from '../services/token-service';
+import TokenService from '../services/token-service';
 import config from '../config';
 
 const ArtApiService = {
@@ -39,7 +39,8 @@ const ArtApiService = {
         return fetch(`${config.API_ENDPOINT}/comments`, {
           method: 'POST',
           headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
         },
           body: JSON.stringify({
             art_id,
@@ -54,6 +55,9 @@ const ArtApiService = {
               }
               return res.json();
           })
+      },
+      postToGallery(object_id) {
+
       }
 }
 export default ArtApiService
