@@ -110,6 +110,7 @@ export default class Dashboard extends React.Component {
                 let allComments = res2.map(c =>
                     <div className='art-comments' key={c.id}>
                         <p>User: {c.user_id}</p>
+                        <p>Username: {c.user_name}</p>
                         <p>Comment: {c.comment}</p>
                     </div>
                 )

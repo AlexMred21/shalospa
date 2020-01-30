@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ArtApiService from '../../services/art-api-service';
-// import ArtPage from '../art-page/art-page';
+import TokenService from '../../services/token-service';
 
 export default class Gallery extends React.Component {
     state = {
@@ -9,7 +9,9 @@ export default class Gallery extends React.Component {
     }
 
     componentDidMount() {
-        ArtApiService.getArtGallery()
+        let userId = TokenService.getUserId()
+        let userIdNum = parseInt(userId)
+        ArtApiService.getArtGalleryById(userIdNum)
             .then(resJson =>
                 // console.log(resJson)
                 this.setState({

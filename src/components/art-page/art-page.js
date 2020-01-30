@@ -1,6 +1,7 @@
 import React from 'react';
 // import config from '../../config'
 import ArtApiService from '../../services/art-api-service';
+import TokenService from '../../services/token-service';
 
 export default class ArtPage extends React.Component {
     state = {
@@ -20,7 +21,7 @@ export default class ArtPage extends React.Component {
 
         // if (this.state.errorCount > 0) return;
         // const objectId = this.props.match.params.objectId;
-        // console.log(objectId);
+        // console.log(TokenService.getUserId());
 
         const { objectId, addComment } = e.target;
         console.log(this.props.match.params.objectId)
@@ -82,7 +83,7 @@ export default class ArtPage extends React.Component {
                 <div className='art-info'>
                     <h3>{this.state.title}</h3>
                     <h3>{this.state.artist} {this.state.year}</h3>
-                    <button className='add-to-gallery-btn'><h4>Save to my gallery</h4></button>
+                    {/* <button className='add-to-gallery-btn'><h4>Save to my gallery</h4></button> */}
                 </div>
 
                 <div className='comments-container'>
