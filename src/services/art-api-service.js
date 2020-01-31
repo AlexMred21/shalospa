@@ -71,8 +71,25 @@ const ArtApiService = {
               return res.json();
           })
       },
-      postToGallery(object_id) {
-
+      postToGallery(art_id, user_id) {
+        return fetch(`${config.API_ENDPOINT}/art/gallery/${user_id}`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
+        },
+        body: JSON.stringify({
+          art_id
+          }),
+        })
+        .then(res => {
+          if (!res.ok) {
+              return res.json().then(error => {
+                  throw error;
+              });
+          }
+          return res.json().then(alert('This item was saved in your gallery.'));
+      })
       }
 }
 export default ArtApiService

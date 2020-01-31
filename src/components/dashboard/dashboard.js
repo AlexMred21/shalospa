@@ -1,5 +1,6 @@
 import React from 'react';
 import ArtApiService from '../../services/art-api-service';
+import TokenService from '../../services/token-service';
 // import ArtPage from '../art-page/art-page';
 
 const artArray = [
@@ -60,6 +61,7 @@ export default class Dashboard extends React.Component {
         title: '',
         artist: '',
         year: '',
+        alert: false,
         error: null,
     }
 
@@ -71,7 +73,24 @@ export default class Dashboard extends React.Component {
 
     addToGallery = (e) => {
         e.preventDefault();
-        const { objectId } = e.target
+
+        console.log('addToGallery object_id =', this.state.object_id);
+        console.log('addToGallery user_id =', TokenService.getUserId());
+
+        const newGalleryItem = {
+            art_id: this.state.object_id,
+            user_id: parseInt(TokenService.getUserId())
+        }
+
+        ArtApiService.postToGallery(newGalleryItem.art_id, newGalleryItem.user_id)
+            .then(item => {
+                console.log(item)
+                // alert('This item was saved in your gallery.')
+                // this.props.history.push(window.location.href='/gallery', item);
+            })
+            .catch(error => {
+                this.setState({ error: error });
+            });
     }
 
     handleSubmit = (e) => {
@@ -89,13 +108,13 @@ export default class Dashboard extends React.Component {
 
         ArtApiService.postComment(newComment.art_id, newComment.comment)
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 addComment.value = '';
                 this.setState({data});
                 this.props.history.push(window.location.reload(), data);
             })
             .catch(error => {
-                this.setState({ appError: error });
+                this.setState({ error: error });
             });
     };
 
