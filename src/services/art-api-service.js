@@ -88,7 +88,8 @@ const ArtApiService = {
                   throw error;
               });
           }
-          return res.json().then(alert('This item was saved in your gallery.'));
+          return res.json()
+            .then(alert('This item was saved in your gallery.'));
       })
       }
 }

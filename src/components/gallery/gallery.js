@@ -18,6 +18,7 @@ export default class Gallery extends React.Component {
                     art: resJson
                 })
             )
+            .catch(error => this.setState({error}))
     }
 
     render() {
