@@ -12,6 +12,7 @@
 .App {
   text-align: center;
   padding-bottom: 20px;
+  padding-top: 50px;
   overflow: auto;
   min-height: 90vh;
 }
@@ -22,8 +23,37 @@
 }
 
 .nav {
+  position: fixed;
+  display: inline-block;
   background-color: teal;
-  padding: 1%
+  padding: 1%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 20px 0;
+}
+
+/* .nav-link-home */
+.Header__left {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  /* display: inline-block;
+  font-style: normal; */
+  text-decoration: none;
+  /* padding-bottom: 5%; */
+}
+
+.Header__right {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+
+.active {
+  color: orange;
+  font-weight: bold;
 }
 
 .nav-link, .nav-link-home {

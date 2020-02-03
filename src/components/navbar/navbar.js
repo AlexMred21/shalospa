@@ -11,15 +11,17 @@ export default class Navbar extends React.Component {
     renderLogoutLink() {
         return (
             <div className='Header__logged-in'>
+                <div className='Header__left'>
                 <NavLink
                     to='/dashboard'
                     className='nav-link-home'
                     id='home'>
                     My Dashboard
                 </NavLink>
+                </div>
                 <div className='Header__right'>
                     <NavLink
-                        to='/galler'
+                        to='/gallery'
                         className='nav-link'>
                         Gallery
                     </NavLink>
@@ -37,12 +39,14 @@ export default class Navbar extends React.Component {
     renderLoginLink() {
         return (
             <div className='Header__not-logged-in'>
+                <div className='Header__left'>
                 <NavLink
                     exact to='/'
                     className='nav-link-home'
                     id='home'>
                     MUSEME
                 </NavLink>
+                </div>
                 <div className='Header__right'>
                     <NavLink
                         className='nav-link signup'
@@ -67,31 +71,5 @@ export default class Navbar extends React.Component {
                     : this.renderLoginLink()}
             </nav>
         )
-//         return (
-//             <nav className='nav' id='nav'>
-//                 <div className='Header__not-logged-in'>
-//                     <NavLink
-//                         exact to='/'
-//                         className='nav-link-home'
-//                         id='home'>
-//                         MUSEME
-//                         {/* TODO - logo */}
-//                     </NavLink>
-//                 <div className='Header__right'>
-//                     <NavLink
-//                         className='nav-link signup'
-//                         to='/signup'>
-//                         Sign Up
-//                     </NavLink>
-//                     <NavLink
-//                         className='nav-link login'
-//                         to='/login'>
-//                         Log in
-//                     </NavLink>
-//                 </div>
-// {/* MOVE THIS UP TO OTHER DIV? */}
-//             </div>
-//             </nav>
-//         )
     }
 }
