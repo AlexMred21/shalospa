@@ -1,68 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MUSEME
 
-## Available Scripts
+This application allows users to view randomized art from The Metropolitan Museum of Art Collection in New York City. Users can save art to their own curated gallery which they can view at any time, and users can comment along with other art aficionados.
 
-In the project directory, you can run:
+## Working Prototype
+[MUSEME API Repo](https://github.com/brandiherrera/museum-app-full-stack-capstone-server)
 
-### `npm start`
+[MUSEME React Repo](https://github.com/brandiherrera/museum-app-full-stack-capstone-react)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- [Live MUSEME Application]() -->
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Site Map: MVP
 
-### `npm test`
+<img src="./screenshots/site-map.png" alt="site map">
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## User Stories
 
-### `npm run build`
+**Landing Page**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As a new user I want to understand the purpose of the app so I can decide if I want to sign up.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Sign Up Page**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As a new user I want to sign up for the app so I can use it to view random artwork, save to my own gallery if I wish, and comment on pieces and discuss the artwork with other users.
 
-### `npm run eject`
+**Log In Page**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+As a returning user I want to log in so I can have access to random art, my saved gallery, and other users' thoughts and comments on various artwork.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Dashboard**
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+As a returning user I want to view a randomly generated piece of art in addition to comments from other users. I also want to save the art to my gallery if I wish, so I can view it at a later time.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Gallery**
 
-## Learn More
+As a returning user I want to view my gallery so I can enjoy artwork that I like at my leisure.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Art Page**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As a returning user I want to view artwork that I have saved in greater detail at my leisure so I can enjoy it, view other comments, and add comments of my own.
 
-### Code Splitting
+**Comments**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+As a returning user I want to post comments on various pieces of art so I can enter discussions with other users or simply to share my thoughts with myself and other users. I want to be able to view them in real-time and at a later date as I wish.
 
-### Analyzing the Bundle Size
+**Log Out Page**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+As a returning user I want to access a log out so I can log out at my convenience.
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Live Screenshots
 
-### Advanced Configuration
+### **Landing Page**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<img src="./screenshots/landing-page.png" alt="Landing page">
 
-### Deployment
+### **Sign Up Page**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<img src="./screenshots/signup.png" alt="Signup page">
 
-### `npm run build` fails to minify
+### **Log In Page**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<img src="./screenshots/login.png" alt="Login page">
+
+### **Dashboard**
+
+<img src="./screenshots/dashboard.png" alt="Dashboard">
+
+### **Gallery**
+
+<img src="./screenshots/gallery.png" alt="Gallery Page">
+
+### **Art Page**
+
+<img src="./screenshots/art-page.png" alt="Art page">
+
+### **Comments**
+
+<img src="./screenshots/comments.png" alt="Comments">
+
+
+## Technology Used
+
+<b>Front End</b>
+* HTML5
+* CSS3
+* JavaScript
+* React
+* Jest and Enzyme for testing
+  
+<b>Back End</b>
+* Node.js
+* Express.js
+* PostgreSQL
+* Mocha and Chai for testing
+
+## Scripts
+
+Install node modules `npm install`
+
+Run the tests `npm test`
+
+Start the application `npm start`
