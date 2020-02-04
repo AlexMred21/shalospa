@@ -1,5 +1,4 @@
 import React from 'react';
-// import config from '../../config'
 import ArtApiService from '../../services/art-api-service';
 import TokenService from '../../services/token-service';
 
@@ -11,6 +10,7 @@ export default class ArtPage extends React.Component {
         title: '',
         artist: '',
         year: '',
+        user_name: '',
         error: null,
     }
 
@@ -23,17 +23,18 @@ export default class ArtPage extends React.Component {
         // const objectId = this.props.match.params.objectId;
         // console.log(TokenService.getUserId());
 
-        const { objectId, addComment } = e.target;
+        const { objectId, addComment, username } = e.target;
         console.log(this.props.match.params.objectId)
         console.log(addComment.value)
         const newComment = {
+            user_name: this.state.username,
             art_id: this.props.match.params.objectId,
             comment: addComment.value,
         };
         console.log(newComment)
         this.setState({ error: null });
 
-        ArtApiService.postComment(newComment.art_id, newComment.comment)
+        ArtApiService.postComment(newComment.user_name, newComment.art_id, newComment.comment)
             .then(data => {
                 console.log(data)
                 addComment.value = '';
@@ -50,17 +51,23 @@ export default class ArtPage extends React.Component {
         console.log(objectId);
         let i = objectId;
 
-        Promise.all([ArtApiService.getArtImage(i), ArtApiService.getComments(i)])
-            .then(([res1, res2]) => {
-                console.log(res1, res2)
+        let userId = TokenService.getUserId()
+        let userIdNum = parseInt(userId)
+
+        Promise.all([ArtApiService.getArtImage(i), ArtApiService.getComments(i), ArtApiService.getUsername(userIdNum)])
+        .then(([res1, res2, res3]) => {
+            this.setState({
+                username: res3
+            })
+                // console.log(res1, res2)
                 let allComments = res2.map(c =>
                     <div className='art-comments' key={c.id}>
-                        <p>User: {c.user_id}</p>
+                        {/* <p>User: {c.user_id}</p> */}
                         <p>Username: {c.user_name}</p>
                         <p>Comment: {c.comment}</p>
                     </div>
                 )
-                console.log(allComments)
+                // console.log(allComments)
                 return Promise.all([res1, allComments])
             })
             .then(([res1, allComments]) => {
@@ -83,7 +90,6 @@ export default class ArtPage extends React.Component {
                 <div className='art-info'>
                     <h3>{this.state.title}</h3>
                     <h3>{this.state.artist} {this.state.year}</h3>
-                    {/* <button className='add-to-gallery-btn'><h4>Save to my gallery</h4></button> */}
                 </div>
 
                 <div className='comments-container'>
