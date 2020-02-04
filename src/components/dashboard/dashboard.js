@@ -108,9 +108,7 @@ export default class Dashboard extends React.Component {
         this.setState({ error: null });
 
         ArtApiService.postComment(newComment.user_name, newComment.art_id, newComment.comment)
-            // console.log('working')
             .then(data => {
-                // console.log('DATA 112', data)
                 addComment.value = '';
                 this.setState({data});
                 this.props.history.push(window.location.reload(), data);
@@ -124,7 +122,7 @@ export default class Dashboard extends React.Component {
         let i = 300; // TODO ---> will be the objectID from function getRandomArtId()
         let j = 436535;
         // let j = 228990;
-        let h = 438012;
+        // let h = 438012;
 
         let userId = TokenService.getUserId()
         let userIdNum = parseInt(userId)

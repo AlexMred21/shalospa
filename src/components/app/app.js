@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import Header from '../header/header';
 import Signup from '../signup/signup';
@@ -8,6 +8,9 @@ import Dashboard from '../dashboard/dashboard';
 import Gallery from '../gallery/gallery';
 import ArtPage from '../art-page/art-page';
 import Footer from '../footer/footer';
+
+import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
+import PrivateRoute from '../../utils/PrivateRoute';
 
 import './app.css';
 
@@ -29,23 +32,23 @@ export default class App extends React.Component {
             exact path='/'
             component={Header}
           />
-          <Route
+          <PublicOnlyRoute
             path='/signup'
             component={Signup}
           />
-          <Route
+          <PublicOnlyRoute
             path='/login'
             component={Login}
           />
-          <Route
+          <PrivateRoute
             path='/dashboard'
             component={Dashboard}
           />
-          <Route
+          <PrivateRoute
             path='/gallery'
             component={Gallery}
           />
-          <Route
+          <PrivateRoute
             path='/art/:objectId'
             component={ArtPage}
           />
