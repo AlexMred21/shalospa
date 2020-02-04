@@ -20,9 +20,9 @@ export default class App extends React.Component {
           <Navbar />
         </div>
 
-        <Link to='/dashboard'><h3>Dashboard</h3></Link>
+        {/* <Link to='/dashboard'><h3>Dashboard</h3></Link>
         <Link to='/gallery'><h3>Gallery</h3></Link>
-        <Link to='/art'><h3>ArtPage</h3></Link>
+        <Link to='/art'><h3>ArtPage</h3></Link> */}
 
         <main className='app-main'>
           <Route

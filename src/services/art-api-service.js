@@ -40,6 +40,17 @@ const ArtApiService = {
             : res.json()
         )
       },
+      getUsername(userId) {
+        return fetch(`${config.API_ENDPOINT}/users/${userId}`, {
+          method: 'GET',
+        })
+        .then(res =>
+          (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
+        .then(resJson => resJson.user_name)
+      },
       getComments(objectId) {
         return fetch(`${config.API_ENDPOINT}/comments/${objectId}`, {
 
@@ -49,8 +60,9 @@ const ArtApiService = {
             ? res.json().then(e => Promise.reject(e))
             : res.json()
         )
+
       },
-      postComment(art_id, comment) {
+      postComment(user_name, art_id, comment) {
         return fetch(`${config.API_ENDPOINT}/comments`, {
           method: 'POST',
           headers: {
@@ -58,6 +70,7 @@ const ArtApiService = {
             'authorization': `bearer ${TokenService.getAuthToken()}`,
         },
           body: JSON.stringify({
+            user_name,
             art_id,
             comment
             }),
@@ -68,6 +81,7 @@ const ArtApiService = {
                       throw error;
                   });
               }
+              // console.log('postComment res.json() ====>', res.json())
               return res.json();
           })
       },
