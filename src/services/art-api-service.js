@@ -32,6 +32,19 @@ const ArtApiService = {
       getArtImage(id) {
         // console.log(`${config.API_ENDPOINT}/art/${id}`)
         return fetch(`${config.API_ENDPOINT}/art/${id}`, {
+        // return fetch(`${config.API_ENDPOINT}/met/daily`, {
+
+        })
+        .then(res =>
+          (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
+      },
+      getDailyArtImage(id) {
+        // console.log(`${config.API_ENDPOINT}/art/${id}`)
+        // return fetch(`${config.API_ENDPOINT}/art/${id}`, {
+        return fetch(`${config.API_ENDPOINT}/met/daily`, {
 
         })
         .then(res =>

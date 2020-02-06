@@ -127,7 +127,8 @@ export default class Dashboard extends React.Component {
         let userId = TokenService.getUserId()
         let userIdNum = parseInt(userId)
 
-        Promise.all([ArtApiService.getArtImage(j), ArtApiService.getComments(j),
+
+        Promise.all([ArtApiService.getDailyArtImage(), ArtApiService.getComments(j),
             ArtApiService.getUsername(userIdNum)
         ])
             .then(([res1, res2, res3]) => {
