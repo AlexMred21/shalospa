@@ -110,7 +110,7 @@ export default class Dashboard extends React.Component {
         ArtApiService.postComment(newComment.user_name, newComment.art_id, newComment.comment)
             .then(data => {
                 addComment.value = '';
-                this.setState({data});
+                this.setState({ data });
                 this.props.history.push(window.location.reload(), data);
             })
             .catch(error => {
@@ -121,52 +121,48 @@ export default class Dashboard extends React.Component {
     componentDidMount() {
         let i = 300; // TODO ---> will be the objectID from function getRandomArtId()
         let j = 436535;
-        // let j = 228990;
-        // let h = 438012;
 
         let userId = TokenService.getUserId()
         let userIdNum = parseInt(userId)
+        // console.log(userIdNum)
 
-
-        Promise.all([ArtApiService.getDailyArtImage(), ArtApiService.getComments(j),
-            ArtApiService.getUsername(userIdNum)
+        Promise.all([ArtApiService.getDailyArtImage(), ArtApiService.getUsername(userIdNum)
         ])
             .then(([res1, res2, res3]) => {
+                console.log(res2)
                 this.setState({
-                    username: res3
-                })
-                // console.log(res1, res2, res3, this.state.username)
-                let allComments = res2.map(c =>
-                    <div className='art-comments' key={c.id}>
-                        {/* <p>User: {c.user_id}</p> */}
-                        <p>User: {c.user_name}</p>
-                        <p>Comment: {c.comment}</p>
-                    </div>
-                )
-                let commentArray = (
-                    (allComments.length === 0) 
-                    ? <div className='art-comments' key='0'>
-                        <p>Be the first to add a comment.</p> 
-                    </div> 
-                    : allComments
-                    )
-                // console.log(commentArray)
-                return Promise.all([res1, commentArray])
-            })
-            .then(([res1, allComments/*, res3*/]) => {
-                this.setState({
+                    username: res2,
                     object_id: res1.object_id,
                     picture: res1.primary_image,
                     title: res1.art_title,
                     artist: res1.art_artist,
                     year: res1.art_date,
-                    // username: res3,
-                    comments: allComments,
                 })
+                ArtApiService.getComments(this.state.object_id)
+                    .then(res2 => {
+                        let allComments = res2.map(c =>
+                            <div className='art-comments' key={c.id}>
+                                <p>User: {c.user_name}</p>
+                                <p>Comment: {c.comment}</p>
+                            </div>
+                        )
+                        let commentArray = (
+                            (allComments.length === 0)
+                                ? <div className='art-comments' key='0'>
+                                    <p>Be the first to add a comment.</p>
+                                </div>
+                                : allComments
+                        )
+                        return Promise.all([commentArray])
+                            .then((allComments) => {
+                                this.setState({
+                                    comments: allComments,
+                                })
+                                console.log(this.state)
+                            })
+                        .catch(error => this.setState({ error }))
+                    })
             })
-                // console.log(this.state)
-            .catch(error => this.setState({error}))
-        
     }
 
     render() {
@@ -175,13 +171,13 @@ export default class Dashboard extends React.Component {
         return (
             <div className='art-page'>
                 <img className='random-feature' src={this.state.picture} alt='Art of the day.' />
-                
+
                 <div className='art-info'>
                     <h3>{this.state.title}</h3>
                     <h3>{this.state.artist} {this.state.year}</h3>
                     <button
-                    className='add-to-gallery-btn' 
-                    onClick={this.addToGallery}
+                        className='add-to-gallery-btn'
+                        onClick={this.addToGallery}
                     ><h4>Save to my gallery</h4></button>
                 </div>
 
@@ -194,7 +190,7 @@ export default class Dashboard extends React.Component {
                             <label>Add a comment</label>
                             <br />
                             <input className='add-comment' type='text' name='addComment' id='add-comment' />
-                            
+
                             <button type='submit'>
                                 Submit
                             </button>
