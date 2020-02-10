@@ -16,16 +16,14 @@ import './app.css';
 
 
 export default class App extends React.Component {
+
   render() {
+
     return (
       <div className='App'>
         <div className='app-nav'>
           <Navbar />
         </div>
-
-        {/* <Link to='/dashboard'><h3>Dashboard</h3></Link>
-        <Link to='/gallery'><h3>Gallery</h3></Link>
-        <Link to='/art'><h3>ArtPage</h3></Link> */}
 
         <main className='app-main'>
           <Route
@@ -53,6 +51,7 @@ export default class App extends React.Component {
             component={ArtPage}
           />
         </main>
+        
         <div className='app-footer'>
           <Footer />
         </div>

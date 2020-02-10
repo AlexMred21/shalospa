@@ -2,6 +2,7 @@ import React from 'react';
 import ValidationError from '../../validation-error';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
+import config from '../../config';
 
 export default class Login extends React.Component {
 
@@ -45,6 +46,7 @@ export default class Login extends React.Component {
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
                 TokenService.saveUserId(res.userId)
+                fetch(`${config.API_ENDPOINT}/met/interval`)
                 window.location = '/dashboard'
             })
             .then()

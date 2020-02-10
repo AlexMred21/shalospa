@@ -1,58 +1,10 @@
 import React from 'react';
 import ArtApiService from '../../services/art-api-service';
 import TokenService from '../../services/token-service';
-// import ArtPage from '../art-page/art-page';
 
-// const artArray = [
-//     {
-//         objectID: 300,
-//         primaryImage: 'https://images.metmuseum.org/CRDImages/ad/original/69178.jpg',
-//         title: 'Balcony',
-//         objectDate: '1800-1830',
-//         artistDisplayName: '',
-//     },
-//     {
-//         objectID: 4000,
-//         primaryImage: 'https://images.metmuseum.org/CRDImages/ad/original/112937.jpg',
-//         title: 'Fragment',
-//         objectDate: '1700-1800',
-//         artistDisplayName: '',
-//     },
-//     {
-//         objectID: 436535,
-//         primaryImage: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg',
-//         title: 'Wheat Field with Cypresses',
-//         objectDate: '1889',
-//         artistDisplayName: 'Vincent van Gogh',
-//     },
-//     {
-//         objectID: 438012,
-//         primaryImage: 'https://images.metmuseum.org/CRDImages/ep/original/DT1877.jpg',
-//         title: 'Bouquet of Chrysanthemums',
-//         objectDate: '1881',
-//         artistDisplayName: 'Auguste Renoir',
-//     },
-// ]
-
-// const commentArray = [
-//     {
-//         objectID: 436535,
-//         user: 'Artlover3000',
-//         comment: 'This is my favorite!!!',
-//     },
-//     {
-//         objectID: 436535,
-//         user: 'vangogogh',
-//         comment: 'Starry Night, spectacular!'
-//     },
-//     {
-//         objectID: 438012,
-//         user: 'masterpeace',
-//         comment: 'Oh la laaaa',
-//     },
-// ]
 
 export default class Dashboard extends React.Component {
+
     state = {
         art: [],
         comments: [],
@@ -66,11 +18,11 @@ export default class Dashboard extends React.Component {
         error: null,
     }
 
-    getRandomArtId() {
-        const randomId = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
-        console.log('RANDOM ID:', randomId)
-        return randomId;
-    }
+    // getRandomArtId() {
+    //     const randomId = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
+    //     console.log('RANDOM ID:', randomId)
+    //     return randomId;
+    // }
 
     addToGallery = (e) => {
         e.preventDefault();
@@ -129,7 +81,7 @@ export default class Dashboard extends React.Component {
         Promise.all([ArtApiService.getDailyArtImage(), ArtApiService.getUsername(userIdNum)
         ])
             .then(([res1, res2, res3]) => {
-                console.log(res2)
+                // console.log(res2)
                 this.setState({
                     username: res2,
                     object_id: res1.object_id,
@@ -158,7 +110,7 @@ export default class Dashboard extends React.Component {
                                 this.setState({
                                     comments: allComments,
                                 })
-                                console.log(this.state)
+                                // console.log(this.state)
                             })
                         .catch(error => this.setState({ error }))
                     })
@@ -166,8 +118,8 @@ export default class Dashboard extends React.Component {
     }
 
     render() {
-        this.getRandomArtId()
-        console.log(this.state)
+        // this.getRandomArtId()
+        // console.log(this.state)
         return (
             <div className='art-page'>
                 <img className='random-feature' src={this.state.picture} alt='Art of the day.' />
@@ -196,7 +148,6 @@ export default class Dashboard extends React.Component {
                             </button>
                         </div>
                     </form>
-
                 </div>
             </div>
         )
