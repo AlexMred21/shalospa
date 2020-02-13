@@ -98,9 +98,9 @@ export default class Login extends React.Component {
                     <button type='submit'>
                         Log in
                     </button>
-                    {/* <p>To view a demo use:</p>
-                    <p>Email: demo@test.com</p>
-                    <p>Password: password1</p> */}
+                    <p>To view a demo use:</p>
+                    <p>Email: artlover3000@test.com</p>
+                    <p>Password: password1</p>
                 </form>
             </div>
         )

@@ -25,11 +25,14 @@ export default class App extends React.Component {
           <Navbar />
         </div>
 
-        <main className='app-main'>
+        <div className='app-header'>
           <Route
             exact path='/'
             component={Header}
           />
+        </div>
+
+        <main className='app-main'>
           <PublicOnlyRoute
             path='/signup'
             component={Signup}
@@ -51,7 +54,7 @@ export default class App extends React.Component {
             component={ArtPage}
           />
         </main>
-        
+
         <div className='app-footer'>
           <Footer />
         </div>

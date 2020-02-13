@@ -38,7 +38,7 @@ export default class Navbar extends React.Component {
 
     renderLoginLink() {
         return (
-            <div className='Header__not-logged-in'>
+            <div className='Header__not-logged-in' id='Header__not-logged-in'>
                 <div className='Header__left'>
                 <NavLink
                     exact to='/'

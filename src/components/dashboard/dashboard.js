@@ -49,7 +49,11 @@ export default class Dashboard extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const { objectId, addComment, username } = e.target;
+        const {
+            // objectId, 
+            addComment,
+            // username 
+        } = e.target;
 
         const newComment = {
             user_name: this.state.username,
@@ -71,9 +75,6 @@ export default class Dashboard extends React.Component {
     };
 
     componentDidMount() {
-        let i = 300; // TODO ---> will be the objectID from function getRandomArtId()
-        let j = 436535;
-
         let userId = TokenService.getUserId()
         let userIdNum = parseInt(userId)
         // console.log(userIdNum)
@@ -94,8 +95,9 @@ export default class Dashboard extends React.Component {
                     .then(res2 => {
                         let allComments = res2.map(c =>
                             <div className='art-comments' key={c.id}>
-                                <p>User: {c.user_name}</p>
-                                <p>Comment: {c.comment}</p>
+                                <h6>User: </h6><p>{c.user_name}</p>
+                                <br />
+                                <h6>Comment: </h6><p>{c.comment}</p>
                             </div>
                         )
                         let commentArray = (
@@ -112,7 +114,7 @@ export default class Dashboard extends React.Component {
                                 })
                                 // console.log(this.state)
                             })
-                        .catch(error => this.setState({ error }))
+                            .catch(error => this.setState({ error }))
                     })
             })
     }
@@ -122,7 +124,7 @@ export default class Dashboard extends React.Component {
         // console.log(this.state)
         return (
             <div className='art-page'>
-                <img className='random-feature' src={this.state.picture} alt='Art of the day.' />
+                <img className='random-feature' src={this.state.picture} alt='Random piece of art.' />
 
                 <div className='art-info'>
                     <h3>{this.state.title}</h3>
@@ -135,15 +137,17 @@ export default class Dashboard extends React.Component {
 
                 <div className='comments-container'>
                     <h3>Comments</h3>
-                    {this.state.comments}
+                    {/* <div className='art-comments-container'> */}
+                        {this.state.comments}
+                    {/* </div> */}
 
                     <form className='comment-form' onSubmit={this.handleSubmit}>
                         <div className='add-comment-entry'>
-                            <label>Add a comment</label>
+                            <label id='add-comment-label'>Add a comment</label>
                             <br />
                             <input className='add-comment' type='text' name='addComment' id='add-comment' />
 
-                            <button type='submit'>
+                            <button id='add-comment-btn' type='submit'>
                                 Submit
                             </button>
                         </div>

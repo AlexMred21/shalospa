@@ -23,7 +23,11 @@ export default class ArtPage extends React.Component {
         // const objectId = this.props.match.params.objectId;
         // console.log(TokenService.getUserId());
 
-        const { objectId, addComment, username } = e.target;
+        const { 
+            // objectId, 
+            addComment, 
+            // username 
+        } = e.target;
         console.log(this.props.match.params.objectId)
         console.log(addComment.value)
         const newComment = {

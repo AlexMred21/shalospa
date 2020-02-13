@@ -29,7 +29,7 @@ export default class Gallery extends React.Component {
                 <h2>My Gallery</h2>
                 <div className='gallery-container'>
                     {this.state.art.map(a => (
-                        <div key={a.id}>
+                        <div className='gallery-image-item' key={a.id}>
                             <Link to={`/art/${a.object_id}`} /*id={a.object_id}*/>
                             {/* <Link key={a.id} to='/art'> */}
                                 <img key={a.id} className='gallery-image' src={a.primary_image} alt='Gallery tile' />
