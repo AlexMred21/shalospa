@@ -222,6 +222,7 @@ nav a:hover {
   color: white;
   position: absolute;
   left: 0px;
+  /* top: 0px; */
   top: 20px;
   text-decoration: none;
 }
@@ -235,6 +236,7 @@ nav a:hover {
   color: white;
   position: absolute;
   right: 0px;
+  /* top: 0px; */
   top: 20px;
 }
 
@@ -255,12 +257,18 @@ nav a:hover {
   background-color: black;
 }
 
+/* .app-nav {
+  padding-top: 0;
+} */
+
 .app-heading {
   /* color: white; */
   font-size: 200%;
   padding: 4% 0;
-  background-color: #3366ff;
-  height: 750px;
+  margin-top: -18px;
+  /* background-color: #3366ff; */
+  /* height: 750px; */
+  height: 90vh;
   /* background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"); */
   background: url('https://d3rtf5gv0re40d.cloudfront.net/anzax/53/53857f9f-057d-4c20-b063-c31c09548bbe_1000_695.jpg');
   background-color: white;
