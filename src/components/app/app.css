@@ -11,10 +11,59 @@ body {
 
 }
 
-h1 {
+h1,
+h2,
+nav,
+#info-signup {
   font-family: 'Montserrat', sans-serif;
-  font-size: 300%;
+}
 
+h1 {
+  font-size: 300%;
+  /* color: white; */
+}
+
+.art-page {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  /* align-content: center; */
+}
+
+/* .art-info {
+  font-size: 1em;
+} */
+
+.art-title {
+  font-size: 1.3em;
+  margin-bottom: 1.5%;
+}
+
+.art-page-h3 {
+  font-size: 1.1em;
+  margin-top: 1%;
+}
+
+.art-title
+{
+  font-family: 'Raleway', sans-serif;
+}
+
+.art-page-save {
+  font-size: 1.2em;
+  margin: 0%;
+}
+
+.add-to-gallery-btn {
+  /* background-color: peru; */
+  background-color: #9763BC;
+  color: white;
+  height: 40px;
+  /* width: 200px; */
+  border: none;
+  border-radius: 30px;
 }
 
 #landing-page-pic {
@@ -46,9 +95,16 @@ h1 {
 }
 
 #info-header {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 200%;
-  color: #BD178F;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-size: 2em;
+  /* color: #BD178F; */
+  color: #BFA4A4;
+  margin-bottom: 15px;
+}
+
+#info-signup {
+  color: #BFA4A4;
+  font-size: 1em;
 }
 
 .App {
@@ -77,12 +133,53 @@ h1 {
 }
 
 .app-info {
-  /* background-color: lightpink; */
-  /* background-color: #04BD9E; */
-  /* background-color: #9763BC; */
-  /* color:  */
-  padding: 5% 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: space-evenly;
+  padding: 1% 0;
+  /* color: #9A828D; */
+}
+
+.app-info-item {
+  width: 30%;
+}
+
+.app-info-icon {
+  /* color: #3366ff; */
   color: #9A828D;
+  font-size: 1.6em;
+}
+
+.link {
+  font-size: 1.2em;
+  height: 2.5em;
+  width: 15em;
+  border-radius: 30px;
+  /* border: 3px solid #98CE00; */
+  border: 3px solid #4DCCBD;
+
+}
+
+.link-login {
+  /* background-color: #98CE00; */
+  background-color: #4DCCBD;
+  color: white;
+}
+
+.link-signup {
+  /* background-color: #98CE00; */
+  color: #4DCCBD;
+  /* color: white; */
+}
+
+.link-login:hover,
+.link-signup:hover {
+  /* background-color: #688E00;
+  border: 3px solid #688E00; */
+  background-color: #8DDED5;
+  border: 3px solid #8DDED5;
+  color: white;
 }
 
 /* .app-signup {
@@ -109,7 +206,14 @@ h1 {
 
 nav a {
   color: #404E4D;
+  /* color: #231651 */
   /* color: white; */
+  font-weight: 200;
+}
+
+nav a:hover {
+  /* border-bottom: 2px solid lightgrey; */
+  border-bottom: 2px solid #16E0BD;
 }
 
 /* .nav-link-home */
@@ -136,8 +240,10 @@ nav a {
 
 .active {
   /* color: orange; */
-  color: #FC914A;
+  /* color: #FC914A; */
+  /* color: #FC914A; */
   font-weight: bold;
+  border-bottom: 2px solid #404E4D;
 }
 
 .nav-link, .nav-link-home {
@@ -156,18 +262,17 @@ nav a {
   background-color: #3366ff;
   height: 750px;
   /* background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"); */
-  /* background: url('https://d32dm0rphc51dk.cloudfront.net/QPf0pQHWrsN49PQJemDhGg/large.jpg'); */
-  /* background: url('https://www.guggenheim.org/wp-content/uploads/2015/11/installation-srgm-karl-nierendorf-870x489.jpg'); */
   background: url('https://d3rtf5gv0re40d.cloudfront.net/anzax/53/53857f9f-057d-4c20-b063-c31c09548bbe_1000_695.jpg');
-  /* background-color: #cccccc; */
   background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-blend-mode: multiply; */
+  /* background-blend-mode: difference; */
+  /* background-blend-mode: hard-light; */
 }
 
 .random-feature {
   width: 60%;
+  align-self: center;
   /* width: 50%; */
   padding-top: 3%;
 }
@@ -230,7 +335,7 @@ nav a {
 .art-comments {
   /* border: black solid 1px; */
   border-radius: 2px;
-  background-color: #5A82E8;
+  /* background-color: #5A82E8; */
   background-color: #698DEA;
   margin: .5% 2%;
   text-align: left;
@@ -259,24 +364,19 @@ input, button {
 
 button:hover {
   background-color: #339966;
+  cursor: pointer;
   transition: .4s;
 }
 
-.add-to-gallery-btn {
-  background-color: peru;
-  height: 50px;
-  width: 200px;
-}
-
 @media screen and (min-width: 750px) {
-  .app-info, .app-signup {
+  /* .app-info, .app-signup {
     display: inline-block;
     width: 50%;
-  }
+  } */
   #info-signup {
     /* max-height: 550px;
     display: flex; */
-    background-color: lavender;
+    /* background-color: lavender; */
   }
   .nav {
     font-size: large;

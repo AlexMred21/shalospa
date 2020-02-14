@@ -92,12 +92,12 @@ export default class ArtPage extends React.Component {
                 <img className='random-feature' src={this.state.picture} alt='Art of the day.' />
 
                 <div className='art-info'>
-                    <h3>{this.state.title}</h3>
-                    <h3>{this.state.artist} {this.state.year}</h3>
+                    <h3 className="art-title">{this.state.title}</h3>
+                    <h3 className="art-page-h3">{this.state.artist}, {this.state.year}</h3>
                 </div>
 
                 <div className='comments-container'>
-                    <h3>Comments</h3>
+                    <h3 className="art-page-h3">Comments</h3>
                     {this.state.comments}
 
                     <form className='comment-form' onSubmit={this.handleSubmit}>

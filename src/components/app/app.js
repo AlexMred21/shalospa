@@ -12,8 +12,22 @@ import Footer from '../footer/footer';
 import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
 import PrivateRoute from '../../utils/PrivateRoute';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+// import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee, faArrowCircleRight, faHeart, faUserFriends, faComments, faPalette, faCloudDownloadAlt, faMagic } from '@fortawesome/free-solid-svg-icons';
+
 import './app.css';
 
+library.add(faCheckSquare, 
+  faCoffee, 
+  faArrowCircleRight,
+  faHeart,
+  faUserFriends,
+  faComments,
+  faPalette,
+  faCloudDownloadAlt,
+  faMagic
+  )
 
 export default class App extends React.Component {
 

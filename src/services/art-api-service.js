@@ -126,7 +126,8 @@ const ArtApiService = {
               });
           }
           return res.json()
-            .then(alert('This item was saved in your gallery.'));
+            .then(window.location = '/gallery')
+            // .then(alert('This item was saved in your gallery.'));
       })
       }
 }
