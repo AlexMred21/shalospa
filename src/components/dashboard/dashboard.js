@@ -1,7 +1,7 @@
 import React from 'react';
 import ArtApiService from '../../services/art-api-service';
 import TokenService from '../../services/token-service';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export default class Dashboard extends React.Component {
@@ -128,18 +128,19 @@ export default class Dashboard extends React.Component {
                 <img className='random-feature' src={this.state.picture} alt='Random piece of art.' />
 
                 <div className='art-info'>
-                    <h3 className="art-title">{this.state.title}</h3>
-                    <h3 className="art-page-h3">{this.state.artist}, {this.state.year}</h3>
                     <button
                         className='add-to-gallery-btn'
-                        onClick={this.addToGallery}
-                    ><p className="art-page-save">Save to gallery</p></button>
+                        onClick={this.addToGallery}>
+                        <p className="art-page-save">Add to gallery</p></button>
+                    <h3 className="art-title">{this.state.title}</h3>
+                    <h3 className="art-page-h3">{this.state.artist}, {this.state.year}</h3>
+
                 </div>
 
                 <div className='comments-container'>
                     <h3 className="art-page-h3">Comments</h3>
                     {/* <div className='art-comments-container'> */}
-                        {this.state.comments}
+                    {this.state.comments}
                     {/* </div> */}
 
                     <form className='comment-form' onSubmit={this.handleSubmit}>

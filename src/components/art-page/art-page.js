@@ -66,9 +66,9 @@ export default class ArtPage extends React.Component {
                 // console.log(res1, res2)
                 let allComments = res2.map(c =>
                     <div className='art-comments' key={c.id}>
-                        {/* <p>User: {c.user_id}</p> */}
-                        <p>Username: {c.user_name}</p>
-                        <p>Comment: {c.comment}</p>
+                        <h6>User: </h6><p>{c.user_name}</p>
+                                <br />
+                                <h6>Comment: </h6><p>{c.comment}</p>
                     </div>
                 )
                 // console.log(allComments)

@@ -152,7 +152,7 @@ export default class Signup extends React.Component {
     render() {
         return (
             <div className='signup-page' >
-                <h2>Signup</h2>
+                <h2>Sign up</h2>
                 <form className='signup-form' onSubmit={this.handleSubmitBasicAuth}>
                     <div className="signup-form-entry">
                         <label htmlFor='first-name'>First name</label>
