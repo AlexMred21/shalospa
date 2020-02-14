@@ -1,6 +1,7 @@
 import React from 'react';
 import ArtApiService from '../../services/art-api-service';
 import TokenService from '../../services/token-service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -123,18 +124,34 @@ export default class Dashboard extends React.Component {
     render() {
         // this.getRandomArtId()
         // console.log(this.state)
+        let mailtoUrl = `mailto:?Subject=Check%20Out%20This%20Artwork%20from%20MuseMe!&body=I think you'd really enjoy this artwork I found on MuseMe: ${this.state.picture}`
+
         return (
             <div className='art-page'>
                 <img className='random-feature' src={this.state.picture} alt='Random piece of art.' />
 
                 <div className='art-info'>
-                    <button
-                        className='add-to-gallery-btn'
-                        onClick={this.addToGallery}>
-                        <p className="art-page-save">Add to gallery</p></button>
-                    <h3 className="art-title">{this.state.title}</h3>
-                    <h3 className="art-page-h3">{this.state.artist}, {this.state.year}</h3>
-
+                    <div className='art-info-btns'>
+                        <button
+                            className='add-to-gallery-btn'
+                            onClick={this.addToGallery}>
+                            <p className="art-page-save">
+                                <FontAwesomeIcon icon="heart" id='art-page-save-icon'/>
+                                <span className='tooltip-text'>Add to gallery</span>
+                            </p>
+                        </button>
+                        <button
+                            className='add-to-gallery-btn'
+                            >
+                            <p className="art-page-save">
+                                <a href={mailtoUrl}><FontAwesomeIcon icon="share" id='art-page-save-icon'/></a>
+                                <span className='tooltip-text'>Share with friends</span>
+                            </p>
+                        </button>
+                        </div>
+                        <h3 className="art-title">{this.state.title}</h3>
+                        <h3 className="art-page-h3">{this.state.artist}, {this.state.year}</h3>
+                    
                 </div>
 
                 <div className='comments-container'>

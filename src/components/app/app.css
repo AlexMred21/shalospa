@@ -66,22 +66,55 @@ h1 {
   margin: 0%;
 }
 
+.art-info-btns {
+  display: inline;
+  text-align: right;
+}
+
 .add-to-gallery-btn {
-  /* background-color: peru; */
+  /* background-color: white; */
   /* text-align: right; */
+  /* position: relative; */
+  font-size: 1em;
   display: inline-block;
-  /* text-align: right; */
-  text-align: end;
-  background-color: #9763BC;
-  color: white;
-  height: 40px;
-  /* width: 200px; */
+  text-align: center;
+  /* text-align: end; */
+  /* background-color: #9763BC; */
+  /* color: white; */
+  color: #9763BC;
+  height: 30px;
+  width: 30px;
   border: none;
   border-radius: 30px;
   margin-top: auto;
   margin-bottom: auto;
   align-self: flex-end;
 }
+
+#art-page-save-icon {
+  color: #9763BC;
+}
+.art-page-save {
+  position: relative;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  font-size: .5em;
+  position: absolute;
+  z-index: 1;
+  width: 60px;
+  background-color: #9763BC;
+  color: white;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.art-page-save:hover .tooltip-text {
+  visibility: visible;
+}
+
 
 #landing-page-pic {
   max-width: 20%;
@@ -341,7 +374,8 @@ nav a:hover {
   width: 90%;
   align-self: center;
   /* width: 50%; */
-  padding-top: 3%;
+  /* padding-top: 3%; */
+  border-radius: 3px;
 }
 
 .gallery-container {
@@ -368,8 +402,15 @@ nav a:hover {
   text-align: left;
 }
 
+.comments-container {
+  margin: 5%;
+  padding-bottom: 3%;
+  background-color: #16E0BD;
+  border-radius: 3px;
+}
+
 .comments-container > h3 {
-  margin: 10px 5% 0px 5%;
+  margin: 10px 0px 0px 2%;
   text-align: left;
   /* background-color: lightblue; */
 }
@@ -401,12 +442,17 @@ nav a:hover {
 
 .art-comments {
   /* border: black solid 1px; */
+
   border-radius: 2px;
   /* background-color: #5A82E8; */
   background-color: #698DEA;
-  margin: .5% 5%;
+  margin: .5% 2%;
   text-align: left;
   padding: 1% 2%;
+}
+
+#add-comment {
+  width: 80%;
 }
 
 /* .art-comments {
@@ -419,6 +465,7 @@ nav a:hover {
 .art-comments h6,
 .art-comments p {
   display: inline;
+  font-size: .8em;
 }
 
 input, button {
@@ -436,65 +483,18 @@ button:hover {
 }
 
 @media screen and (min-width: 750px) {
-  /* .app-info, .app-signup {
-    display: inline-block;
-    width: 50%;
-  } */
-  #info-signup {
-    /* max-height: 550px;
-    display: flex; */
-    /* background-color: lavender; */
-  }
   .nav {
     font-size: large;
   }
-  /* .art-comments-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: left;
-    width: 70%;
-  } */
-  /* .art-comments {
-    width: 45%;
-  } */
+
   .login-page,
   .signup-page {
     width: 40%;
   }
-  .art-comments {
-    margin: .5% 20%;
-  }
-  .comments-container > h3 {
-    margin: 10px 20% 0px 20%;
-  }
+
   .signup-form-entry > input,
   .login-form-entry > input {
     width: 250px;
-  }
-  .random-feature {
-    width: 60%;
-  }
-  .art-info {
-    /* display: flex;
-    flex-direction: column; */
-    /* flex-wrap: wrap; */
-    margin: .5% 20%
-  }
-  
-  .art-title {
-    /* font-size: 1.3em;
-    margin: 0;
-    font-family: 'Open Sans', sans-serif; */
-    align-self: flex-start;
-  }
-  
-  .art-page-h3 {
-    /* font-size: 1.1em;
-    margin-top: .5%;
-    font-weight: 200; */
-    align-self: flex-start;
   }
 }
 
@@ -505,5 +505,25 @@ button:hover {
     justify-content: center;
     align-items: space-evenly;
     padding: 1% 0;
+  }
+
+  .random-feature {
+    width: 60%;
+  }
+  
+  .art-info {
+    margin: .5% 20%
+  }
+  
+  .art-title {
+    align-self: flex-start;
+  }
+  
+  .art-page-h3 {
+    align-self: flex-start;
+  }
+
+  .comments-container {
+    margin: 0 20%;
   }
 }
