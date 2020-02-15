@@ -18,6 +18,7 @@ export default class Login extends React.Component {
                 value: '',
                 touched: false
             },
+            error: null,
         }
     }
 
@@ -52,8 +53,14 @@ export default class Login extends React.Component {
             })
             .then()
             .catch(res => {
+                console.log({ error: res.error })
                 this.setState({ error: res.error })
+                this.formError();
             })
+    }
+
+    formError = () => {
+
     }
 
     validateEmail() {
@@ -84,14 +91,14 @@ export default class Login extends React.Component {
                 <form className='login-form' onSubmit={this.handleSubmitJwtAuth}>
                     <div className='login-form-entry'>
                         <label htmlFor='email'>Email</label>
-                        <input className='login-control' type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)} 
+                        <input className='login-control' type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)}
                         // value='demo@test.com' 
                         />
                         {this.state.email.touched && (<ValidationError message={this.validateEmail()} />)}
                     </div>
                     <div className='login-form-entry'>
                         <label htmlFor='password'>Password</label>
-                        <input className='login-control' type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)} 
+                        <input className='login-control' type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)}
                         // value='password1' 
                         />
                         {this.state.password.touched && (<ValidationError message={this.validatePassword()} />)}
@@ -99,9 +106,14 @@ export default class Login extends React.Component {
                     <button type='submit'>
                         Log in
                     </button>
-                    <p>To view a demo use:</p>
-                    <p>Email: artlover3000@test.com</p>
-                    <p>Password: password1</p>
+                    <div className='error-message'>
+                        {this.state.error}
+                    </div>
+                    <div className='demo-info'>
+                        <p className='login-form-p'><b>To view a demo use:</b></p>
+                        <p className='login-form-p'><b>Email:</b> artlover3000@test.com</p>
+                        <p className='login-form-p'><b>Password:</b> password1</p>
+                    </div>
                 </form>
             </div>
         )

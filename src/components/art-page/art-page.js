@@ -66,13 +66,22 @@ export default class ArtPage extends React.Component {
                 // console.log(res1, res2)
                 let allComments = res2.map(c =>
                     <div className='art-comments' key={c.id}>
-                        <h6>User: </h6><p>{c.user_name}</p>
-                                <br />
-                                <h6>Comment: </h6><p>{c.comment}</p>
-                    </div>
+                    {/* <h6>User: </h6><p>{c.user_name}</p> */}
+                    <h6>{c.user_name}: </h6>
+                    {/* <br /> */}
+                    {/* <h6>Comment: </h6> */}
+                    <p>{c.comment}</p>
+                </div>
+                )
+                let commentArray = (
+                    (allComments.length === 0)
+                        ? <div className='art-comments' key='0'>
+                            <p>Be the first to add a comment.</p>
+                        </div>
+                        : allComments
                 )
                 // console.log(allComments)
-                return Promise.all([res1, allComments])
+                return Promise.all([res1, [commentArray]])
             })
             .then(([res1, allComments]) => {
                 this.setState({
@@ -106,8 +115,7 @@ export default class ArtPage extends React.Component {
                             <br />
                             <input className='add-comment' type='text' name='addComment' id='add-comment' />
 
-                            <button 
-                                type='submit'
+                            <button id='add-comment-btn' type='submit'
                             >
                                 Submit
                             </button>

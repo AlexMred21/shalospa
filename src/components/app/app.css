@@ -4,19 +4,19 @@
 
 body {
   /* font-family: 'Roboto', sans-serif; */
-  color: #232B2A;
+  /* color: #232B2A; */
+  color: #4C5454;
   /* padding-top: 50px; */
   background-color:white;
   /* background-color:#EDEEEE; */
-
 }
 
 h1,
 h2,
 nav,
 #info-signup,
-label
- {
+label,
+.login-form-p {
   font-family: 'Nunito', sans-serif;
 }
 
@@ -27,8 +27,13 @@ h4 {
 }
 
 h1 {
-  font-size: 300%;
+  font-size: 250%;
+  margin-bottom: 0px;
   /* color: white; */
+}
+
+h2 {
+  margin-top: 0;
 }
 
 .art-page {
@@ -72,15 +77,9 @@ h1 {
 }
 
 .add-to-gallery-btn {
-  /* background-color: white; */
-  /* text-align: right; */
-  /* position: relative; */
   font-size: 1em;
   display: inline-block;
   text-align: center;
-  /* text-align: end; */
-  /* background-color: #9763BC; */
-  /* color: white; */
   color: #9763BC;
   height: 30px;
   width: 30px;
@@ -92,8 +91,10 @@ h1 {
 }
 
 #art-page-save-icon {
-  color: #9763BC;
+  /* color: #9763BC; */
+  color: #F39237;
 }
+
 .art-page-save {
   position: relative;
 }
@@ -104,7 +105,8 @@ h1 {
   position: absolute;
   z-index: 1;
   width: 60px;
-  background-color: #9763BC;
+  /* background-color: #F6AF6D; */
+  background-color: #F14193;
   color: white;
   text-align: center;
   border-radius: 3px;
@@ -115,6 +117,10 @@ h1 {
   visibility: visible;
 }
 
+#art-page-save-icon:hover {
+  color: #F14193;
+  transition: .3s;
+}
 
 #landing-page-pic {
   max-width: 20%;
@@ -133,29 +139,11 @@ h1 {
   margin-left: auto;
 }
 
-/* .signup-form, */
-/* .signup-form-entry {
-  background-color: lightpink;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
-/* .signup-form-entry > label,
-.signup-form-entry > input {
-  flex-grow: 1;
-} */
-
-/* .signup-form-entry > label {
-  align-items: flex-start;
-} */
-
 .signup-form-entry > input,
 .login-form-entry > input {
   display: block;
   width: 95%;
   margin-top: 1%;
-  /* align-items: center; */
 }
 
 .login-form-entry {
@@ -181,16 +169,40 @@ h1 {
   width: 10em;
 }
 
+.demo-info {
+  margin-top: 15%;
+  border-top: 1px solid #D9D9D9;
+  padding-top: 15%;
+}
+
+.login-form-p {
+  text-align: left;
+  margin: 0;
+}
+
+.error-message {
+  color: #FF715B;
+  color: #FF4023;
+  /* color: white; */
+  font-weight: bold;
+  /* border: 1px solid #FF715B; */
+  margin: 1%;
+  border-radius: 3px;
+  background-color: #FFB1A5;
+}
+
 #info-header {
   /* font-family: 'Montserrat', sans-serif; */
   font-size: 2em;
   /* color: #BD178F; */
-  color: #BFA4A4;
+  /* color: #BFA4A4; */
   margin-bottom: 15px;
 }
 
 #info-signup {
-  color: #BFA4A4;
+  /* color: #BFA4A4; */
+  /* color: #191923; */
+  color: #EEB868;
   font-size: 1em;
 }
 
@@ -239,7 +251,7 @@ h1 {
 .app-info-icon {
   /* color: #3366ff; */
   align-items: center;
-  color: #9A828D;
+  /* color: #9A828D; */
   font-size: 1.6em;
 }
 
@@ -274,12 +286,6 @@ h1 {
   color: white;
 }
 
-/* .app-signup {
-  background-color: #5880E8;
-  padding: 5% 0;
-  vertical-align: auto;
-} */
-
 .nav {
   /* position: fixed; */
   display: inline-block;
@@ -304,8 +310,7 @@ nav a {
 }
 
 nav a:hover {
-  /* border-bottom: 2px solid lightgrey; */
-  border-bottom: 2px solid #16E0BD;
+  border-bottom: 3px solid #16E0BD;
 }
 
 /* .nav-link-home */
@@ -333,11 +338,9 @@ nav a:hover {
 }
 
 .active {
-  /* color: orange; */
-  /* color: #FC914A; */
-  /* color: #FC914A; */
   font-weight: bold;
-  border-bottom: 2px solid #404E4D;
+  /* border-bottom: 2px solid #404E4D; */
+  border-bottom: 3px solid #16E0BD;
 }
 
 .nav-link, .nav-link-home {
@@ -345,27 +348,17 @@ nav a:hover {
   padding: 10px;
 }
 
-.nav > #Header__not-logged-in {
-  background-color: black;
-}
-
-/* .app-nav {
-  padding-top: 0;
-} */
-
 .app-heading {
-  /* color: white; */
   font-size: 200%;
   padding: 4% 0;
   margin-top: -18px;
-  /* background-color: #3366ff; */
-  /* height: 750px; */
   height: 90vh;
   /* background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"); */
   background: url('https://d3rtf5gv0re40d.cloudfront.net/anzax/53/53857f9f-057d-4c20-b063-c31c09548bbe_1000_695.jpg');
   background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   /* background-blend-mode: difference; */
   /* background-blend-mode: hard-light; */
 }
@@ -373,8 +366,6 @@ nav a:hover {
 .random-feature {
   width: 90%;
   align-self: center;
-  /* width: 50%; */
-  /* padding-top: 3%; */
   border-radius: 3px;
 }
 
@@ -387,6 +378,10 @@ nav a:hover {
   align-content: center;
 }
 
+.gallery h2 {
+  margin-top: 0;
+}
+
 .gallery-image-item {
   display: inline-flex;
   width: 30%;
@@ -395,6 +390,7 @@ nav a:hover {
 
 .gallery-image {
   width: 100%;
+  border-radius: 2px;
 }
 
 .comment-form > label {
@@ -405,62 +401,57 @@ nav a:hover {
 .comments-container {
   margin: 5%;
   padding-bottom: 3%;
-  background-color: #16E0BD;
+  border: 1px solid #ADB1B1;
+  /* background-color: #16E0BD; */
+  /* background-color: #8DDED5; */
+  /* background-color: #F4FFFD; */
   border-radius: 3px;
 }
 
 .comments-container > h3 {
-  margin: 10px 0px 0px 2%;
+  font-size: .9em;
+  font-weight: bold;
+  /* margin: 10px 0px 0px 2%; */
+  margin-top: 10px;
+  padding-left: 4%;
   text-align: left;
-  /* background-color: lightblue; */
+  border-bottom: 1px solid #ADB1B1;
 }
-
-/* .comments-container {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  justify-content: center;
-  margin: 2%;
-} */
 
 .comment-form {
   text-align: center;
   padding-top: 2%;
+  font-size: .9em;
 }
-
-/* #add-comment {
-  text-align: center;
-  width: 85%;
-  background-color: lightblue;
-} */
 
 #add-comment-btn {
+  border-radius: 30px;
+  border: 3px solid #EF177C;
+  background-color: #EF177C;
+  font-size: .9em;
+  color: white;
   text-align: center;
-  width: 10%;
+  width: 25%;
 }
 
+#add-comment-btn:hover {
+  background-color: #F14193;
+  border: 3px solid #F14193;
+}
 
 .art-comments {
-  /* border: black solid 1px; */
-
   border-radius: 2px;
-  /* background-color: #5A82E8; */
-  background-color: #698DEA;
+  /* background-color: #698DEA; */
+  /* border: 1px solid #ADB1B1; */
+  color: #698DEA;
   margin: .5% 2%;
   text-align: left;
   padding: 1% 2%;
 }
 
 #add-comment {
-  width: 80%;
+  width: 90%;
 }
-
-/* .art-comments {
-  background-color: lightslategray;
-  border-radius: 2px;
-  padding: 5px;
-  margin-bottom: 2px;
-} */
 
 .art-comments h6,
 .art-comments p {
@@ -477,9 +468,20 @@ input, button {
 }
 
 button:hover {
-  background-color: #339966;
+  /* background-color: #339966; */
   cursor: pointer;
   transition: .4s;
+}
+
+@media screen and (max-width: 500px) {
+  .app-info-icon {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .app-log-in {
+    margin-top: 9%;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -495,6 +497,11 @@ button:hover {
   .signup-form-entry > input,
   .login-form-entry > input {
     width: 250px;
+  }
+
+  .add-to-gallery-btn {
+    font-size: 1.3em;
+    margin-bottom: 3%;
   }
 }
 

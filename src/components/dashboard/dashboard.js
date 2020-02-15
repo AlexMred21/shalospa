@@ -97,9 +97,11 @@ export default class Dashboard extends React.Component {
                     .then(res2 => {
                         let allComments = res2.map(c =>
                             <div className='art-comments' key={c.id}>
-                                <h6>User: </h6><p>{c.user_name}</p>
-                                <br />
-                                <h6>Comment: </h6><p>{c.comment}</p>
+                                {/* <h6>User: </h6><p>{c.user_name}</p> */}
+                                <h6>{c.user_name}: </h6>
+                                {/* <br /> */}
+                                {/* <h6>Comment: </h6> */}
+                                <p>{c.comment}</p>
                             </div>
                         )
                         let commentArray = (
@@ -137,7 +139,7 @@ export default class Dashboard extends React.Component {
                             onClick={this.addToGallery}>
                             <p className="art-page-save">
                                 <FontAwesomeIcon icon="heart" id='art-page-save-icon'/>
-                                <span className='tooltip-text'>Add to gallery</span>
+                                <span className='tooltip-text'>SAVE</span>
                             </p>
                         </button>
                         <button
@@ -145,7 +147,7 @@ export default class Dashboard extends React.Component {
                             >
                             <p className="art-page-save">
                                 <a href={mailtoUrl}><FontAwesomeIcon icon="share" id='art-page-save-icon'/></a>
-                                <span className='tooltip-text'>Share with friends</span>
+                                <span className='tooltip-text'>SHARE</span>
                             </p>
                         </button>
                         </div>
