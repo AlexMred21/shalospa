@@ -13,19 +13,16 @@ import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
 import PrivateRoute from '../../utils/PrivateRoute';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-// import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee, faArrowCircleRight, faHeart, faUserFriends, faComments, faPalette, faCloudDownloadAlt, faMagic, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleRight, faHeart, faUserFriends, faComments, faPalette, faMagic, faShare } from '@fortawesome/free-solid-svg-icons';
 
 import './app.css';
 
-library.add(faCheckSquare, 
-  faCoffee, 
+library.add(
   faArrowCircleRight,
   faHeart,
   faUserFriends,
   faComments,
   faPalette,
-  faCloudDownloadAlt,
   faMagic,
   faShare
   )
@@ -77,4 +74,3 @@ export default class App extends React.Component {
     );
   }
 }
-
