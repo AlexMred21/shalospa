@@ -65,6 +65,7 @@ As a returning user I want to access a log out so I can log out at my convenienc
 ### **Dashboard**
 
 <img src="./screenshots/dashboard.png" alt="Dashboard">
+<img src="./screenshots/dashboard-2.png" alt="Dashboard">
 
 ### **Gallery**
 
@@ -73,10 +74,11 @@ As a returning user I want to access a log out so I can log out at my convenienc
 ### **Art Page**
 
 <img src="./screenshots/art-page.png" alt="Art page">
+<img src="./screenshots/art-page-2.png" alt="Art page">
 
-### **Comments**
+<!-- ### **Comments**
 
-<img src="./screenshots/comments.png" alt="Comments">
+<img src="./screenshots/comments.png" alt="Comments"> -->
 
 
 ## Technology Used

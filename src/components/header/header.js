@@ -1,6 +1,4 @@
 import React from 'react';
-import Signup from '../signup/signup';
-import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -28,7 +26,7 @@ export default class Header extends React.Component {
                             </h3>
                             <h3>with other art aficionados</h3>
                         </div>
-                        <div className='app-info-item' id='magic'>
+                        <div className='app-info-item'>
                             <h3 id='info-header'>
                             <FontAwesomeIcon icon='magic' className='app-info-icon' /> Curate
                             </h3>
