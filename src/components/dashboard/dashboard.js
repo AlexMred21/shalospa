@@ -2,7 +2,6 @@ import React from 'react';
 import ArtApiService from '../../services/art-api-service';
 import TokenService from '../../services/token-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export default class Dashboard extends React.Component {
@@ -20,17 +19,8 @@ export default class Dashboard extends React.Component {
         error: null,
     }
 
-    // getRandomArtId() {
-    //     const randomId = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
-    //     console.log('RANDOM ID:', randomId)
-    //     return randomId;
-    // }
-
     addToGallery = (e) => {
         e.preventDefault();
-
-        console.log('addToGallery object_id =', this.state.object_id);
-        console.log('addToGallery user_id =', TokenService.getUserId());
 
         const newGalleryItem = {
             art_id: this.state.object_id,
@@ -38,11 +28,7 @@ export default class Dashboard extends React.Component {
         }
 
         ArtApiService.postToGallery(newGalleryItem.art_id, newGalleryItem.user_id)
-            .then(item => {
-                console.log(item)
-                // alert('This item was saved in your gallery.')
-                // this.props.history.push(window.location.href='/gallery', item);
-            })
+            .then(item => {})
             .catch(error => {
                 this.setState({ error: error });
             });
@@ -52,9 +38,7 @@ export default class Dashboard extends React.Component {
         e.preventDefault();
 
         const {
-            // objectId, 
             addComment,
-            // username 
         } = e.target;
 
         const newComment = {
@@ -62,7 +46,6 @@ export default class Dashboard extends React.Component {
             art_id: this.state.object_id,
             comment: addComment.value,
         };
-        // console.log(newComment)
         this.setState({ error: null });
 
         ArtApiService.postComment(newComment.user_name, newComment.art_id, newComment.comment)
@@ -79,12 +62,10 @@ export default class Dashboard extends React.Component {
     componentDidMount() {
         let userId = TokenService.getUserId()
         let userIdNum = parseInt(userId)
-        // console.log(userIdNum)
 
         Promise.all([ArtApiService.getDailyArtImage(), ArtApiService.getUsername(userIdNum)
         ])
             .then(([res1, res2, res3]) => {
-                // console.log(res2)
                 this.setState({
                     username: res2,
                     object_id: res1.object_id,
@@ -97,10 +78,7 @@ export default class Dashboard extends React.Component {
                     .then(res2 => {
                         let allComments = res2.map(c =>
                             <div className='art-comments' key={c.id}>
-                                {/* <h6>User: </h6><p>{c.user_name}</p> */}
                                 <h6>{c.user_name}: </h6>
-                                {/* <br /> */}
-                                {/* <h6>Comment: </h6> */}
                                 <p>{c.comment}</p>
                             </div>
                         )
@@ -116,7 +94,6 @@ export default class Dashboard extends React.Component {
                                 this.setState({
                                     comments: allComments,
                                 })
-                                // console.log(this.state)
                             })
                             .catch(error => this.setState({ error }))
                     })
@@ -124,8 +101,6 @@ export default class Dashboard extends React.Component {
     }
 
     render() {
-        // this.getRandomArtId()
-        // console.log(this.state)
         let mailtoUrl = `mailto:?Subject=Check%20Out%20This%20Artwork%20from%20MuseMe!&body=I think you'd really enjoy this artwork I found on MuseMe: ${this.state.picture}`
 
         return (
@@ -158,9 +133,7 @@ export default class Dashboard extends React.Component {
 
                 <div className='comments-container'>
                     <h3 className="art-page-h3">Comments</h3>
-                    {/* <div className='art-comments-container'> */}
                     {this.state.comments}
-                    {/* </div> */}
 
                     <form className='comment-form' onSubmit={this.handleSubmit}>
                         <div className='add-comment-entry'>

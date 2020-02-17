@@ -1,6 +1,7 @@
 import TokenService from '../services/token-service';
 import config from '../config';
 
+
 const ArtApiService = {
   getArtGallery() {
     return fetch(`${config.API_ENDPOINT}/art`, {
@@ -15,8 +16,6 @@ const ArtApiService = {
       )
   },
     getArtGalleryById(userId) {
-      console.log()
-        // return fetch(`${config.API_ENDPOINT}/art`, {
         return fetch(`${config.API_ENDPOINT}/art/gallery/${userId}`, {
           method: 'GET',
           headers: {
@@ -29,19 +28,7 @@ const ArtApiService = {
               : res.json()
           )
       },
-      // getIdArtImage(id) {
-      //   // console.log(`${config.API_ENDPOINT}/art/${id}`)
-      //   return fetch(`${config.API_ENDPOINT}/art/id/${id}`, {
-
-      //   })
-      //   .then(res =>
-      //     (!res.ok)
-      //       ? res.json().then(e => Promise.reject(e))
-      //       : res.json()
-      //   )
-      // },
       getArtImage(id) {
-        // console.log(`${config.API_ENDPOINT}/art/${id}`)
         return fetch(`${config.API_ENDPOINT}/art/${id}`, {
 
         })
@@ -52,8 +39,6 @@ const ArtApiService = {
         )
       },
       getDailyArtImage(id) {
-        // console.log(`${config.API_ENDPOINT}/art/${id}`)
-        // return fetch(`${config.API_ENDPOINT}/art/${id}`, {
         return fetch(`${config.API_ENDPOINT}/met/daily`, {
 
         })
@@ -83,7 +68,6 @@ const ArtApiService = {
             ? res.json().then(e => Promise.reject(e))
             : res.json()
         )
-
       },
       postComment(user_name, art_id, comment) {
         return fetch(`${config.API_ENDPOINT}/comments`, {
@@ -104,7 +88,6 @@ const ArtApiService = {
                       throw error;
                   });
               }
-              // console.log('postComment res.json() ====>', res.json())
               return res.json();
           })
       },
@@ -127,8 +110,8 @@ const ArtApiService = {
           }
           return res.json()
             .then(window.location = '/gallery')
-            // .then(alert('This item was saved in your gallery.'));
       })
       }
 }
+
 export default ArtApiService

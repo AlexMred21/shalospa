@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 
+
 export default class Navbar extends React.Component {
     handleLogoutClick = () => {
         TokenService.clearAuthToken()

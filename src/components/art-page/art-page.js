@@ -2,6 +2,7 @@ import React from 'react';
 import ArtApiService from '../../services/art-api-service';
 import TokenService from '../../services/token-service';
 
+
 export default class ArtPage extends React.Component {
     state = {
         art: [],
@@ -14,33 +15,21 @@ export default class ArtPage extends React.Component {
         error: null,
     }
 
-
-
     handleSubmit = (e) => {
         e.preventDefault();
 
-        // if (this.state.errorCount > 0) return;
-        // const objectId = this.props.match.params.objectId;
-        // console.log(TokenService.getUserId());
-
         const { 
-            // objectId, 
-            addComment, 
-            // username 
+            addComment,
         } = e.target;
-        console.log(this.props.match.params.objectId)
-        console.log(addComment.value)
         const newComment = {
             user_name: this.state.username,
             art_id: this.props.match.params.objectId,
             comment: addComment.value,
         };
-        console.log(newComment)
         this.setState({ error: null });
 
         ArtApiService.postComment(newComment.user_name, newComment.art_id, newComment.comment)
             .then(data => {
-                console.log(data)
                 addComment.value = '';
                 this.setState({data});
                 this.props.history.push(window.location.reload(), data);
@@ -52,7 +41,6 @@ export default class ArtPage extends React.Component {
 
     componentDidMount() {
         const objectId = this.props.match.params.objectId;
-        console.log(objectId);
         let i = objectId;
 
         let userId = TokenService.getUserId()
@@ -63,13 +51,9 @@ export default class ArtPage extends React.Component {
             this.setState({
                 username: res3
             })
-                // console.log(res1, res2)
                 let allComments = res2.map(c =>
                     <div className='art-comments' key={c.id}>
-                    {/* <h6>User: </h6><p>{c.user_name}</p> */}
                     <h6>{c.user_name}: </h6>
-                    {/* <br /> */}
-                    {/* <h6>Comment: </h6> */}
                     <p>{c.comment}</p>
                 </div>
                 )
@@ -80,7 +64,6 @@ export default class ArtPage extends React.Component {
                         </div>
                         : allComments
                 )
-                // console.log(allComments)
                 return Promise.all([res1, [commentArray]])
             })
             .then(([res1, allComments]) => {
@@ -121,7 +104,6 @@ export default class ArtPage extends React.Component {
                             </button>
                         </div>
                     </form>
-
                 </div>
             </div>
         )

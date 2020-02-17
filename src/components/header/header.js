@@ -2,9 +2,11 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 export default class Header extends React.Component {
 
     render() {
+
         return (
             <div className='header'>
 
@@ -33,11 +35,6 @@ export default class Header extends React.Component {
                             <h3>your gallery with your favorites</h3>
                         </div>
                     </section>
-
-                    {/* <section className='app-signup'>
-                        <Signup />
-                        <h4>Have an account? <Link to='/login'>Login <FontAwesomeIcon icon='arrow-circle-right' /></Link></h4>
-                    </section> */}
                 </div>
 
                 <section className='app-log-in'>

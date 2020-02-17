@@ -38,7 +38,6 @@ export default class Login extends React.Component {
         ev.preventDefault()
         this.setState({ error: null })
         const { email, password } = ev.target
-        console.log(password.value)
         AuthApiService.postLogin({
             email: email.value,
             password: password.value,
@@ -53,7 +52,6 @@ export default class Login extends React.Component {
             })
             .then()
             .catch(res => {
-                console.log({ error: res.error })
                 this.setState({ error: res.error })
                 this.formError();
             })
@@ -92,14 +90,12 @@ export default class Login extends React.Component {
                     <div className='login-form-entry'>
                         <label htmlFor='email'>Email</label>
                         <input className='login-control' type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)}
-                        // value='demo@test.com' 
                         />
                         {this.state.email.touched && (<ValidationError message={this.validateEmail()} />)}
                     </div>
                     <div className='login-form-entry'>
                         <label htmlFor='password'>Password</label>
                         <input className='login-control' type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)}
-                        // value='password1' 
                         />
                         {this.state.password.touched && (<ValidationError message={this.validatePassword()} />)}
                     </div>

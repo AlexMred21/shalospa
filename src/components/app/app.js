@@ -24,8 +24,9 @@ library.add(
   faComments,
   faPalette,
   faMagic,
-  faShare
+  faShare,
   )
+
 
 export default class App extends React.Component {
 

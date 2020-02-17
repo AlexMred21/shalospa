@@ -19,8 +19,8 @@ export default class Gallery extends React.Component {
                 (resJson.length === 0)
                     ? this.setState({
                         gallery: <div className='empty-gallery'>
-                            You have no art to display. To add art to your gallery, click the <FontAwesomeIcon icon="heart" /> under images your like on your dashboard.
-                                    </div>
+                            <p>You have no art to display.  To add art to your gallery, click the <FontAwesomeIcon icon="heart" /> under an image on your dashboard.</p>
+                        </div>
                     })
                     : this.setState({
                         art: resJson
