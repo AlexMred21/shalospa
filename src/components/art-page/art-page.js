@@ -1,7 +1,7 @@
 import React from 'react';
 import ArtApiService from '../../services/art-api-service';
 import TokenService from '../../services/token-service';
-
+import App from '../app/app';
 
 export default class ArtPage extends React.Component {
     state = {
