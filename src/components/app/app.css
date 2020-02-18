@@ -139,6 +139,11 @@ h2 {
   margin-top: 1%;
 }
 
+.input-error {
+  font-size: .6em;
+  color:#ff0000;
+}
+
 .login-form-entry {
   margin-top: 4%;
 }

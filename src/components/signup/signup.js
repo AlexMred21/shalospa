@@ -96,47 +96,47 @@ export default class Signup extends React.Component {
     validateFirstName() {
         const firstName = this.state.firstName.value.trim();
         if (firstName.length === 0) {
-            return 'First name is required';
+            return <p className='input-error'>First name is required</p>;
         } else if (firstName.length < 2) {
-            return 'Name must be at least 2 characters long';
+            return <p className='input-error'>Name must be at least 2 characters long</p>;
         }
     }
 
     validateLastName() {
         const lastName = this.state.lastName.value.trim();
         if (lastName.length === 0) {
-            return 'Last name is required';
+            return <p className='input-error'>Last name is required</p>;
         } else if (lastName.length < 2) {
-            return 'Last name must be at least 2 characters long';
+            return <p className='input-error'>Last name must be at least 2 characters long</p>;
         }
     }
 
     validateUserName() {
         const userName = this.state.userName.value.trim();
         if (userName.length === 0) {
-            return 'Username is required';
+            return <p className='input-error'>Username is required</p>;
         } else if (userName.length < 2) {
-            return 'Username must be at least 2 characters long';
+            return <p className='input-error'>Username must be at least 2 characters long</p>;
         }
     }
 
     validateEmail() {
         const email = this.state.email.value.trim();
         if (email.length === 0) {
-            return 'Email is required';
+            return <p className='input-error'>Email is required</p>;
         } else if (email.length < 5) {
-            return 'Email must be at least 5 characters long';
+            return <p className='input-error'>Email must be at least 5 characters long</p>;
         }
     }
 
     validatePassword() {
         const password = this.state.password.value.trim();
         if (password.length === 0) {
-            return 'Password is required';
+            return <p className='input-error'>Password is required</p>;
         } else if (password.length < 6 || password.length > 72) {
-            return 'Password must be between 6 and 72 characters long';
+            return <p className='input-error'>Password must be between 6 and 72 characters long</p>;
         } else if (!password.match(/[0-9]/)) {
-            return 'Password must contain at least one number';
+            return <p className='input-error'>Password must contain at least one number</p>;
         }
     }
 
@@ -144,7 +144,7 @@ export default class Signup extends React.Component {
         const repeatPassword = this.state.repeatPassword.value.trim();
         const password = this.state.password.value.trim();
         if (repeatPassword !== password) {
-            return 'Passwords do not match';
+            return <p className='input-error'>Passwords do not match</p>;
         }
     }
 
