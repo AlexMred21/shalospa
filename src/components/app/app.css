@@ -199,7 +199,7 @@ h2 {
 
 .App {
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 70px;
   overflow: auto;
   min-height: 100vh;
   position: relative;
@@ -228,7 +228,7 @@ h2 {
 
 .social {
   vertical-align: middle;
-  margin: 12px;
+  margin: 4px 12px 12px 12px;
   width: 25px;
   height: 25px;
 }
