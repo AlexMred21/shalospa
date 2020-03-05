@@ -39,10 +39,10 @@ export default class Header extends React.Component {
 
                 <section className='app-log-in'>
                     <button className='link link-login' onClick={() => window.location.href = '/login'}>
-                        Log In
+                        Log in
                         </button>
                     <button className='link link-signup' onClick={() => window.location.href = '/signup'}>
-                        Sign Up
+                        Sign up
                         </button>
                 </section>
 
