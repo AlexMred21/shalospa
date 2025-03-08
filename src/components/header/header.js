@@ -11,8 +11,8 @@ export default class Header extends React.Component {
             <div className='header'>
 
                 <div className='app-heading'>
-                    <h1>MuseMe</h1>
-                    <h2>Bringing the museum's muses to you</h2>
+                    <h1>Shalospa Arts</h1>
+                    <h2>Explora obras de arte únicas en nuestra galería virtual.</h2>
                 </div>
                 <div id='info-signup'>
                     <section className='app-info'>
