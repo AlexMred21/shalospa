@@ -1,13 +1,39 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Fuente moderna y profesional */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4; /* Fondo gris claro suave */
+  color: #333; /* Color de texto principal */
+  line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fira Mono', monospace; /* Fuente monoespacio moderna */
+  background-color: #f0f0f0; /* Fondo gris claro para bloques de código */
+  padding: 2px 5px; /* Espaciado interno para bloques de código */
+  border-radius: 3px; /* Bordes redondeados para bloques de código */
+}
+/* Estilos para títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600; /* Peso de fuente más grueso para títulos */
+  color: #222; /* Color de texto para títulos */
+  margin-bottom: 1rem; /* Espaciado inferior para títulos */
+}
+
+/* Estilos para enlaces */
+a {
+  color: #007bff; /* Color azul para enlaces */
+  text-decoration: none; /* Elimina la decoración de subrayado predeterminada */
+}
+
+a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el ratón */
+}
+
+/* Estilos para contenedores */
+.container {
+  width: 90%; /* Ancho del contenedor principal */
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
