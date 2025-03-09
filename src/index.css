@@ -15,10 +15,16 @@ code {
   border-radius: 3px; /* Bordes redondeados para bloques de código */
 }
 /* Estilos para títulos */
-h1, h2, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6 {
   font-weight: 600; /* Peso de fuente más grueso para títulos */
   color: #222; /* Color de texto para títulos */
   margin-bottom: 1rem; /* Espaciado inferior para títulos */
+}
+
+/* estilo propio color SHALOSPA azul celeste */
+
+h2 {
+  color: #87CEEB;
 }
 
 /* Estilos para enlaces */
