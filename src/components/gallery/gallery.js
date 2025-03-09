@@ -33,7 +33,7 @@ export default class Gallery extends React.Component {
 
         return (
             <div className='gallery'>
-                <h2>My Gallery</h2>
+                <h2>NUESTRA GALERÍA SHALOSPA</h2>
                 <div className='gallery-container'>
                     {this.state.gallery}
                     {this.state.art.map(a => (

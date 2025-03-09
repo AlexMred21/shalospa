@@ -1,11 +1,15 @@
 .app-footer {
-    position: relative;
-    margin: 1% 0;
-    padding-left: 2%;
-    width: 100%;
-    height: 20px;
-  }
+  position: relative;
+  margin: 2% 0; /* Aumenta el margen superior e inferior */
+  padding: 10px 20px; /* Añade un padding para que el texto no toque los bordes */
+  width: 100%;
+  height: auto; /* Permite que el footer se ajuste al contenido */
+  background-color: #333; /* Color de fondo oscuro */
+  color: #fff; /* Color de texto blanco */
+  text-align: center; /* Centra el texto */
+}
 
-.app-footer p { 
+.app-footer p {
   margin: 0;
+  font-size: 0.9em; /* Reduce ligeramente el tamaño de la fuente */
 }
